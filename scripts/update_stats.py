@@ -158,91 +158,119 @@ def svg_stats_card(summary, by_model):
 
 
 def svg_heatmap(daily):
-    """GitHub 잔디 스타일 일별 비용 heatmap."""
+    """GitHub 잔디 스타일 일별 비용 heatmap (1년 윈도우, 항상 최근 1년 표시)."""
     if not daily:
         return ""
-    days_sorted = sorted(daily.keys())
-    first = datetime.strptime(days_sorted[0], "%Y-%m-%d").date()
-    last = datetime.strptime(days_sorted[-1], "%Y-%m-%d").date()
+    today = date.today()
+    # 1년 윈도우 (last 53 weeks)
+    end = today
+    # 첫 주 일요일 정렬
+    end_wd_sun0 = (end.weekday() + 1) % 7  # Sun=0
+    last_sat = end + timedelta(days=(6 - end_wd_sun0))  # 다음 토요일
+    start = last_sat - timedelta(days=52 * 7 + 6)  # 53주 전 일요일
 
-    # 첫 주 일요일부터 시작 (GitHub style)
-    start = first - timedelta(days=first.weekday() + 1 if first.weekday() < 6 else 0)
-    if start.weekday() != 6:  # not Sunday
-        start = start - timedelta(days=(start.weekday() + 1) % 7)
+    days_with_data = {d: daily[d] for d in daily}
+    max_cost = max((v["cost"] for v in days_with_data.values()), default=1)
 
-    # 색 단계
-    max_cost = max(daily[d]["cost"] for d in daily)
     def color(cost):
         if cost == 0: return "#161b22"
-        ratio = cost / max_cost
+        ratio = cost / max_cost if max_cost > 0 else 0
         if ratio < 0.10: return "#0e4429"
         if ratio < 0.30: return "#006d32"
         if ratio < 0.60: return "#26a641"
         return "#39d353"
 
-    cell = 11; gap = 2; col_width = cell + gap
-    cols = (last - start).days // 7 + 1
-    w = cols * col_width + 35
-    h = 7 * col_width + 30
+    cell = 12; gap = 3; col_width = cell + gap
+    n_cols = 53
+    label_w = 32; label_h = 22; pad = 16
+    w = label_w + n_cols * col_width + pad
+    h = label_h + 7 * col_width + pad
 
     bg = "#0d1117"; border = "#30363d"; text = "#8b949e"
 
     svg = [
-        f'<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg">',
+        f'<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">',
         f'  <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="6" fill="{bg}" stroke="{border}"/>',
     ]
 
-    # 요일 레이블 (Mon, Wed, Fri만)
+    # 요일 레이블 (Mon, Wed, Fri만) — 셀 중앙 정렬
     weekday_labels = {1: "Mon", 3: "Wed", 5: "Fri"}
     for wd, lbl in weekday_labels.items():
-        y = 20 + wd * col_width + cell - 2
-        svg.append(f'  <text x="3" y="{y}" font-family="-apple-system,sans-serif" font-size="9" fill="{text}">{lbl}</text>')
+        y = label_h + wd * col_width + cell - 2
+        svg.append(f'  <text x="4" y="{y}" font-family="-apple-system,sans-serif" font-size="9" fill="{text}">{lbl}</text>')
 
-    # 셀 그리기
+    # 셀 그리기 + 월 레이블
     cur = start
     col = 0
-    last_month = None
-    while cur <= last:
-        wd = (cur.weekday() + 1) % 7  # Sunday=0
-        d_str = cur.strftime("%Y-%m-%d")
-        cost = daily.get(d_str, {}).get("cost", 0) if cur >= first else 0
-        x = 28 + col * col_width
-        y = 20 + wd * col_width
-        c = color(cost)
-        svg.append(f'  <rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" fill="{c}"><title>{d_str}: ${cost:.0f}</title></rect>')
+    last_month_drawn = None
+    while col < n_cols:
+        wd_sun0 = (cur.weekday() + 1) % 7  # Sun=0
+        if wd_sun0 != 0:
+            # start가 일요일이 아니면 정렬 위해 스킵 (안 일어남, 위에서 정렬했지만 안전망)
+            cur += timedelta(days=1)
+            continue
+        # 한 컬럼 (7일)
+        for offset in range(7):
+            d = cur + timedelta(days=offset)
+            if d > today:
+                break
+            d_str = d.strftime("%Y-%m-%d")
+            cost = days_with_data.get(d_str, {}).get("cost", 0)
+            x = label_w + col * col_width
+            y = label_h + offset * col_width
+            c = color(cost)
+            tooltip = f'{d_str}: ${cost:,.0f}' if cost > 0 else f'{d_str}: 0'
+            svg.append(f'  <rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" fill="{c}"><title>{tooltip}</title></rect>')
 
-        # 월 레이블 (첫째 주만)
-        if wd == 0:
-            if cur.month != last_month:
-                month_lbl = cur.strftime("%b")
-                svg.append(f'  <text x="{x}" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="{text}">{month_lbl}</text>')
-                last_month = cur.month
+        # 월 레이블 (각 월의 첫 번째 주가 시작되는 컬럼에만)
+        if cur.month != last_month_drawn:
+            month_lbl = cur.strftime("%b")
+            mx = label_w + col * col_width
+            svg.append(f'  <text x="{mx}" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="{text}">{month_lbl}</text>')
+            last_month_drawn = cur.month
 
-        cur += timedelta(days=1)
-        if wd == 6:  # Saturday → next column
-            col += 1
+        cur += timedelta(days=7)
+        col += 1
+
+    # 색 범례 (오른쪽 하단)
+    legend_y = h - 14
+    legend_x = w - 130
+    svg.append(f'  <text x="{legend_x - 30}" y="{legend_y + 2}" font-family="-apple-system,sans-serif" font-size="9" fill="{text}">Less</text>')
+    for i, c in enumerate(["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]):
+        svg.append(f'  <rect x="{legend_x + i*15}" y="{legend_y - 6}" width="10" height="10" rx="2" fill="{c}"/>')
+    svg.append(f'  <text x="{legend_x + 5*15 + 4}" y="{legend_y + 2}" font-family="-apple-system,sans-serif" font-size="9" fill="{text}">More</text>')
 
     svg.append('</svg>')
     return "\n".join(svg)
 
 
 def svg_daily_cost(daily):
-    """일별 비용 라인 차트."""
+    """일별 비용 라인 차트 — 연속 날짜 (휴식일 = 0)."""
     if not daily:
         return ""
-    days_sorted = sorted(daily.keys())
-    costs = [daily[d]["cost"] for d in days_sorted]
-    n = len(costs)
-    if n < 2:
+    days_with_data = sorted(daily.keys())
+    if len(days_with_data) < 2:
         return ""
 
-    w, h = 600, 200
-    pad_l, pad_r, pad_t, pad_b = 50, 20, 25, 35
+    # 첫 활동일 ~ 마지막 활동일 사이 모든 날짜 채우기
+    first = datetime.strptime(days_with_data[0], "%Y-%m-%d").date()
+    last = datetime.strptime(days_with_data[-1], "%Y-%m-%d").date()
+    all_days = []
+    cur = first
+    while cur <= last:
+        all_days.append(cur.strftime("%Y-%m-%d"))
+        cur += timedelta(days=1)
+    costs = [daily.get(d, {}).get("cost", 0) for d in all_days]
+    n = len(costs)
+
+    w, h = 720, 240
+    pad_l, pad_r, pad_t, pad_b = 55, 20, 30, 40
     plot_w = w - pad_l - pad_r
     plot_h = h - pad_t - pad_b
+    max_c = max(costs) if max(costs) > 0 else 1
 
-    max_c = max(costs); min_c = 0
-    bg = "#0d1117"; border = "#30363d"; text = "#c9d1d9"; line = "#58a6ff"; grid = "#21262d"; fill = "rgba(88,166,255,0.2)"
+    bg = "#0d1117"; border = "#30363d"; text = "#c9d1d9"; line = "#58a6ff"; grid = "#21262d"
+    fill_color = "#58a6ff"  # use opacity attribute instead of rgba (better GitHub compat)
 
     def xpos(i):
         return pad_l + (i / (n - 1)) * plot_w
@@ -250,35 +278,40 @@ def svg_daily_cost(daily):
         return pad_t + plot_h - (c / max_c) * plot_h
 
     svg = [
-        f'<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg">',
+        f'<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">',
         f'  <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="6" fill="{bg}" stroke="{border}"/>',
-        f'  <text x="{w//2}" y="18" font-family="-apple-system,sans-serif" font-size="12" font-weight="600" fill="{text}" text-anchor="middle">Daily Cost (USD)</text>',
+        f'  <text x="{w//2}" y="20" font-family="-apple-system,sans-serif" font-size="13" font-weight="600" fill="{text}" text-anchor="middle">Daily Cost (USD)</text>',
     ]
 
-    # Y axis grid (4 lines)
+    # Y axis grid (5 lines)
     for i in range(5):
         v = max_c * (4 - i) / 4
         y = pad_t + plot_h * i / 4
-        svg.append(f'  <line x1="{pad_l}" y1="{y}" x2="{w-pad_r}" y2="{y}" stroke="{grid}" stroke-width="0.5"/>')
-        svg.append(f'  <text x="{pad_l - 5}" y="{y+3}" font-family="-apple-system,sans-serif" font-size="9" fill="{text}" text-anchor="end">${v:.0f}</text>')
+        svg.append(f'  <line x1="{pad_l}" y1="{y:.1f}" x2="{w-pad_r}" y2="{y:.1f}" stroke="{grid}" stroke-width="0.5"/>')
+        svg.append(f'  <text x="{pad_l - 5}" y="{y+3:.1f}" font-family="-apple-system,sans-serif" font-size="10" fill="{text}" text-anchor="end">${v:,.0f}</text>')
 
-    # X axis labels (first / mid / last)
-    for i in [0, n // 2, n - 1]:
-        x = xpos(i)
-        lbl = days_sorted[i][5:]  # MM-DD
-        svg.append(f'  <text x="{x}" y="{h-15}" font-family="-apple-system,sans-serif" font-size="9" fill="{text}" text-anchor="middle">{lbl}</text>')
+    # X axis labels — 월별
+    months_shown = set()
+    for i, d in enumerate(all_days):
+        m = d[:7]
+        if m not in months_shown:
+            months_shown.add(m)
+            x = xpos(i)
+            lbl = d[5:7] + "월"
+            svg.append(f'  <text x="{x:.1f}" y="{h-15}" font-family="-apple-system,sans-serif" font-size="10" fill="{text}" text-anchor="middle">{lbl}</text>')
 
-    # Area fill
-    points = [f"{xpos(i)},{ypos(c)}" for i, c in enumerate(costs)]
-    area = f"M{pad_l},{pad_t + plot_h} L " + " L ".join(points) + f" L {w-pad_r},{pad_t + plot_h} Z"
-    svg.append(f'  <path d="{area}" fill="{fill}"/>')
+    # Area fill (opacity로 GitHub 호환)
+    points = [f"{xpos(i):.1f},{ypos(c):.1f}" for i, c in enumerate(costs)]
+    area = f"M{pad_l:.1f},{(pad_t + plot_h):.1f} L " + " L ".join(points) + f" L {(w-pad_r):.1f},{(pad_t + plot_h):.1f} Z"
+    svg.append(f'  <path d="{area}" fill="{fill_color}" fill-opacity="0.2"/>')
     # Line
     line_path = "M " + " L ".join(points)
     svg.append(f'  <path d="{line_path}" stroke="{line}" stroke-width="1.5" fill="none"/>')
+
     # Highlight max
     max_i = costs.index(max(costs))
-    svg.append(f'  <circle cx="{xpos(max_i)}" cy="{ypos(costs[max_i])}" r="3" fill="#f78166"/>')
-    svg.append(f'  <text x="{xpos(max_i)}" y="{ypos(costs[max_i])-6}" font-family="-apple-system,sans-serif" font-size="9" fill="#f78166" text-anchor="middle">${costs[max_i]:.0f}</text>')
+    svg.append(f'  <circle cx="{xpos(max_i):.1f}" cy="{ypos(costs[max_i]):.1f}" r="4" fill="#f78166"/>')
+    svg.append(f'  <text x="{xpos(max_i):.1f}" y="{ypos(costs[max_i])-8:.1f}" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" fill="#f78166" text-anchor="middle">${costs[max_i]:,.0f}</text>')
 
     svg.append('</svg>')
     return "\n".join(svg)

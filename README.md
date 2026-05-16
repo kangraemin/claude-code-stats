@@ -10,16 +10,16 @@ Daily auto-generated stats from local `~/.claude/projects/` logs.
 
 ![Daily Cost Trend](./assets/daily-cost.svg)
 
-**Last update**: 2026-05-16 09:52 KST
+**Last update**: 2026-05-16 09:58 KST
 
 | Metric | Value |
 |---|---:|
-| Total Cost (est) | **$35,012** |
-| Total Tokens | 23.36B |
-| Total Responses | 226,793 |
+| Total Cost (est) | **$35,125** |
+| Total Tokens | 23.41B |
+| Total Responses | 227,012 |
 | Active Days | 59 |
 | Heaviest Day | $3,099 (2026-05-15) |
-| Daily Average | $593 |
+| Daily Average | $595 |
 | Period | 2026-01-18 ~ 2026-05-16 |
 
 <!-- CLAUDE_STATS_END -->
