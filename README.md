@@ -8,22 +8,16 @@ Daily auto-generated stats from local `~/.claude/projects/` logs.
 
 <!-- CLAUDE_STATS_START -->
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/stats-card-dark.svg">
-  <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/stats-card-light.svg" alt="Claude Code Stats" width="520">
-</picture>
+<img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/stats-card-v3-dark.svg#gh-dark-mode-only" alt="Claude Code Stats" width="540">
+<img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/stats-card-v3-light.svg#gh-light-mode-only" alt="Claude Code Stats" width="540">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/heatmap-dark.svg">
-  <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/heatmap-light.svg" alt="Activity Heatmap" width="843">
-</picture>
+<img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/heatmap-v3-dark.svg#gh-dark-mode-only" alt="Activity Heatmap" width="843">
+<img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/heatmap-v3-light.svg#gh-light-mode-only" alt="Activity Heatmap" width="843">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-dark.svg">
-  <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-light.svg" alt="Daily Cost Trend" width="720">
-</picture>
+<img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-v3-dark.svg#gh-dark-mode-only" alt="Daily Cost Trend" width="720">
+<img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-v3-light.svg#gh-light-mode-only" alt="Daily Cost Trend" width="720">
 
-**Last update**: 2026-05-16 10:30 KST
+**Last update**: 2026-05-16 10:35 KST
 
 <!-- CLAUDE_STATS_END -->
 

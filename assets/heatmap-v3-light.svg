@@ -1,5 +1,5 @@
-<svg width="843" height="171" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 843 171">
-  <rect x="0.5" y="0.5" width="842" height="170" rx="6" fill="#ffffff" stroke="#d0d7de"/>
+<svg width="843" height="143" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 843 143">
+  <rect x="0.5" y="0.5" width="842" height="142" rx="6" fill="#ffffff" stroke="#d0d7de"/>
   <text x="4" y="47" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Mon</text>
   <text x="4" y="77" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Wed</text>
   <text x="4" y="107" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Fri</text>
@@ -386,12 +386,5 @@
   <rect x="812" y="67" width="12" height="12" rx="2" fill="#30a14e"><title>2026-05-13: $1,428</title></rect>
   <rect x="812" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-14: $285</title></rect>
   <rect x="812" y="97" width="12" height="12" rx="2" fill="#216e39"><title>2026-05-15: $3,099</title></rect>
-  <rect x="812" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-05-16: $1,235</title></rect>
-  <text x="693" y="145" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76">Less</text>
-  <rect x="725" y="136" width="10" height="10" rx="2" fill="#ebedf0"/>
-  <rect x="739" y="136" width="10" height="10" rx="2" fill="#9be9a8"/>
-  <rect x="753" y="136" width="10" height="10" rx="2" fill="#40c463"/>
-  <rect x="767" y="136" width="10" height="10" rx="2" fill="#30a14e"/>
-  <rect x="781" y="136" width="10" height="10" rx="2" fill="#216e39"/>
-  <text x="797" y="145" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76">More</text>
+  <rect x="812" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-05-16: $1,351</title></rect>
 </svg>

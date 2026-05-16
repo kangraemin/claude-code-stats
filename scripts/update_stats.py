@@ -240,9 +240,9 @@ def svg_heatmap(daily, theme="dark"):
 
     cell = 12; gap = 3; col_width = cell + gap
     n_cols = 53
-    label_w = 32; label_h = 22; pad = 16; legend_h = 28
+    label_w = 32; label_h = 22; pad = 16
     w = label_w + n_cols * col_width + pad
-    h = label_h + 7 * col_width + legend_h + pad
+    h = label_h + 7 * col_width + pad
 
     svg = [
         f'<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">',
@@ -284,22 +284,7 @@ def svg_heatmap(daily, theme="dark"):
         cur += timedelta(days=7)
         col += 1
 
-    # 범례 — 셀 아래 별도 행에 배치 (우측 정렬, 안전한 width 보장)
-    legend_baseline = label_h + 7 * col_width + 18
-    swatch_size = 10
-    swatch_gap = 4
-    swatches_total_w = 5 * swatch_size + 4 * swatch_gap
-    less_text_w = 26  # "Less" 글자 폭 추정
-    more_text_w = 30  # "More" 글자 폭 추정
-    legend_total_w = less_text_w + 6 + swatches_total_w + 6 + more_text_w
-    legend_start_x = w - pad - legend_total_w  # 우측 정렬 (안전 마진)
-
-    svg.append(f'  <text x="{legend_start_x}" y="{legend_baseline}" font-family="-apple-system,sans-serif" font-size="10" fill="{t["text_muted"]}">Less</text>')
-    sx = legend_start_x + less_text_w + 6
-    for i, c in enumerate([t["heat_0"], t["heat_1"], t["heat_2"], t["heat_3"], t["heat_4"]]):
-        svg.append(f'  <rect x="{sx + i*(swatch_size+swatch_gap)}" y="{legend_baseline - 9}" width="{swatch_size}" height="{swatch_size}" rx="2" fill="{c}"/>')
-    text_x = sx + swatches_total_w + 6
-    svg.append(f'  <text x="{text_x}" y="{legend_baseline}" font-family="-apple-system,sans-serif" font-size="10" fill="{t["text_muted"]}">More</text>')
+    # 범례 제거 — 잔디만 깔끔하게 (셀과 swatch 헷갈림 방지)
 
     svg.append('</svg>')
     return "\n".join(svg)
@@ -385,10 +370,11 @@ def write_outputs(daily, by_model, summary, base_dir):
     assets = base / "assets"; data = base / "data"
     assets.mkdir(exist_ok=True); data.mkdir(exist_ok=True)
 
+    # v3 — 캐시 우회용 새 파일명
     for theme in ["dark", "light"]:
-        (assets / f"stats-card-{theme}.svg").write_text(svg_stats_card(summary, daily, by_model, theme))
-        (assets / f"heatmap-{theme}.svg").write_text(svg_heatmap(daily, theme))
-        (assets / f"daily-cost-{theme}.svg").write_text(svg_daily_cost(daily, theme))
+        (assets / f"stats-card-v3-{theme}.svg").write_text(svg_stats_card(summary, daily, by_model, theme))
+        (assets / f"heatmap-v3-{theme}.svg").write_text(svg_heatmap(daily, theme))
+        (assets / f"daily-cost-v3-{theme}.svg").write_text(svg_daily_cost(daily, theme))
 
     snapshot = {
         "updated_at": datetime.now().isoformat(),
@@ -417,20 +403,14 @@ def build_stats_block(summary):
     if not summary: return "_No data yet_"
     base = "https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets"
     return f"""
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="{base}/stats-card-dark.svg">
-  <img src="{base}/stats-card-light.svg" alt="Claude Code Stats" width="520">
-</picture>
+<img src="{base}/stats-card-v3-dark.svg#gh-dark-mode-only" alt="Claude Code Stats" width="540">
+<img src="{base}/stats-card-v3-light.svg#gh-light-mode-only" alt="Claude Code Stats" width="540">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="{base}/heatmap-dark.svg">
-  <img src="{base}/heatmap-light.svg" alt="Activity Heatmap" width="843">
-</picture>
+<img src="{base}/heatmap-v3-dark.svg#gh-dark-mode-only" alt="Activity Heatmap" width="843">
+<img src="{base}/heatmap-v3-light.svg#gh-light-mode-only" alt="Activity Heatmap" width="843">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="{base}/daily-cost-dark.svg">
-  <img src="{base}/daily-cost-light.svg" alt="Daily Cost Trend" width="720">
-</picture>
+<img src="{base}/daily-cost-v3-dark.svg#gh-dark-mode-only" alt="Daily Cost Trend" width="720">
+<img src="{base}/daily-cost-v3-light.svg#gh-light-mode-only" alt="Daily Cost Trend" width="720">
 
 **Last update**: {datetime.now().strftime("%Y-%m-%d %H:%M KST")}
 """
