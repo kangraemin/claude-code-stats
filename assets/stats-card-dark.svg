@@ -1,0 +1,54 @@
+<svg width="520" height="220" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#7ee787" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="costGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7ee787"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="519" height="219" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <rect x="0.5" y="0.5" width="519" height="219" rx="8" fill="url(#bgGrad)"/>
+
+  <!-- 헤더 -->
+  <text x="22" y="32" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#58a6ff">🤖 Claude Code Usage</text>
+  <text x="22" y="50" font-family="-apple-system,sans-serif" font-size="11" fill="#8b949e">2026-01-18 → 2026-05-16 · 59 days</text>
+
+  <!-- Rank 배지 -->
+  <rect x="390" y="18" width="108" height="22" rx="11" fill="#d2a8ff" fill-opacity="0.15" stroke="#d2a8ff" stroke-width="0.8"/>
+  <text x="444" y="33" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="#d2a8ff" text-anchor="middle">Top 1% 🚀</text>
+
+  <!-- Total Cost (큰 강조) -->
+  <text x="22" y="92" font-family="-apple-system,sans-serif" font-size="11" fill="#8b949e" letter-spacing="0.5">TOTAL COST</text>
+  <text x="22" y="125" font-family="-apple-system,sans-serif" font-size="34" font-weight="800" fill="url(#costGrad)">$35,413<animate attributeName="opacity" from="0" to="1" dur="1s" fill="freeze"/></text>
+  <text x="22" y="143" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 49,578,532원 (정가 기준)</text>
+
+  <!-- 통계 4행 -->
+  <g font-family="-apple-system,sans-serif" font-size="12">
+    <text x="22" y="170" fill="#8b949e">🔥 Tokens</text>
+    <text x="135" y="170" fill="#c9d1d9" font-weight="600">23.55B</text>
+
+    <text x="22" y="190" fill="#8b949e">💬 Responses</text>
+    <text x="135" y="190" fill="#c9d1d9" font-weight="600">227,579</text>
+
+    <text x="22" y="210" fill="#8b949e">🏆 Best Day</text>
+    <text x="135" y="210" fill="#f78166" font-weight="600">$3,099</text>
+  </g>
+
+  <!-- 스파크라인 -->
+  <text x="495" y="132" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e" text-anchor="end">Daily cost trend</text>
+  <polygon points="295,190 295.0,190.0 298.4,190.0 301.9,190.0 305.3,190.0 308.8,176.1 312.2,189.2 315.7,190.0 319.1,189.8 322.6,189.7 326.0,189.4 329.5,189.6 332.9,189.6 336.4,183.2 339.8,174.3 343.3,170.0 346.7,186.0 350.2,188.3 353.6,182.2 357.1,175.6 360.5,181.0 364.0,185.4 367.4,188.1 370.9,189.9 374.3,189.3 377.8,189.3 381.2,189.0 384.7,188.6 388.1,183.1 391.6,186.0 395.0,186.9 398.4,152.2 401.9,159.4 405.3,187.7 408.8,189.1 412.2,188.6 415.7,189.2 419.1,189.3 422.6,180.7 426.0,180.5 429.5,179.6 432.9,169.6 436.4,170.8 439.8,172.2 443.3,163.1 446.7,182.0 450.2,141.2 453.6,182.0 457.1,159.4 460.5,185.2 464.0,189.1 467.4,189.3 470.9,169.1 474.3,183.7 477.8,180.8 481.2,159.3 484.7,167.0 488.1,185.4 491.6,140.0 495.0,173.4 495,190" fill="url(#sparkGrad)"/>
+  <polyline points="295.0,190.0 298.4,190.0 301.9,190.0 305.3,190.0 308.8,176.1 312.2,189.2 315.7,190.0 319.1,189.8 322.6,189.7 326.0,189.4 329.5,189.6 332.9,189.6 336.4,183.2 339.8,174.3 343.3,170.0 346.7,186.0 350.2,188.3 353.6,182.2 357.1,175.6 360.5,181.0 364.0,185.4 367.4,188.1 370.9,189.9 374.3,189.3 377.8,189.3 381.2,189.0 384.7,188.6 388.1,183.1 391.6,186.0 395.0,186.9 398.4,152.2 401.9,159.4 405.3,187.7 408.8,189.1 412.2,188.6 415.7,189.2 419.1,189.3 422.6,180.7 426.0,180.5 429.5,179.6 432.9,169.6 436.4,170.8 439.8,172.2 443.3,163.1 446.7,182.0 450.2,141.2 453.6,182.0 457.1,159.4 460.5,185.2 464.0,189.1 467.4,189.3 470.9,169.1 474.3,183.7 477.8,180.8 481.2,159.3 484.7,167.0 488.1,185.4 491.6,140.0 495.0,173.4" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="2s" fill="freeze"/>
+  </polyline>
+
+  <!-- 우하단 update -->
+  <text x="498" y="212" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-05-16 10:15 KST</text>
+</svg>

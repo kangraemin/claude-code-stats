@@ -8,23 +8,22 @@ Daily auto-generated stats from local `~/.claude/projects/` logs.
 
 <!-- CLAUDE_STATS_START -->
 
-![Claude Code Usage](./assets/stats-card.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/stats-card-dark.svg">
+  <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/stats-card-light.svg" alt="Claude Code Stats" width="520">
+</picture>
 
-![Activity Heatmap](./assets/heatmap.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/heatmap-dark.svg">
+  <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/heatmap-light.svg" alt="Activity Heatmap" width="843">
+</picture>
 
-![Daily Cost Trend](./assets/daily-cost.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-dark.svg">
+  <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-light.svg" alt="Daily Cost Trend" width="720">
+</picture>
 
-**Last update**: 2026-05-16 09:58 KST
-
-| Metric | Value |
-|---|---:|
-| Total Cost (est) | **$35,125** |
-| Total Tokens | 23.41B |
-| Total Responses | 227,012 |
-| Active Days | 59 |
-| Heaviest Day | $3,099 (2026-05-15) |
-| Daily Average | $595 |
-| Period | 2026-01-18 ~ 2026-05-16 |
+**Last update**: 2026-05-16 10:15 KST
 
 <!-- CLAUDE_STATS_END -->
 
