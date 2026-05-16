@@ -240,9 +240,9 @@ def svg_heatmap(daily, theme="dark"):
 
     cell = 12; gap = 3; col_width = cell + gap
     n_cols = 53
-    label_w = 32; label_h = 22; pad = 16
+    label_w = 32; label_h = 22; pad = 16; legend_h = 28
     w = label_w + n_cols * col_width + pad
-    h = label_h + 7 * col_width + pad
+    h = label_h + 7 * col_width + legend_h + pad
 
     svg = [
         f'<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">',
@@ -284,12 +284,22 @@ def svg_heatmap(daily, theme="dark"):
         cur += timedelta(days=7)
         col += 1
 
-    legend_y = h - 14
-    legend_x = w - 130
-    svg.append(f'  <text x="{legend_x - 30}" y="{legend_y + 2}" font-family="-apple-system,sans-serif" font-size="9" fill="{t["text_muted"]}">Less</text>')
+    # 범례 — 셀 아래 별도 행에 배치 (우측 정렬, 안전한 width 보장)
+    legend_baseline = label_h + 7 * col_width + 18
+    swatch_size = 10
+    swatch_gap = 4
+    swatches_total_w = 5 * swatch_size + 4 * swatch_gap
+    less_text_w = 26  # "Less" 글자 폭 추정
+    more_text_w = 30  # "More" 글자 폭 추정
+    legend_total_w = less_text_w + 6 + swatches_total_w + 6 + more_text_w
+    legend_start_x = w - pad - legend_total_w  # 우측 정렬 (안전 마진)
+
+    svg.append(f'  <text x="{legend_start_x}" y="{legend_baseline}" font-family="-apple-system,sans-serif" font-size="10" fill="{t["text_muted"]}">Less</text>')
+    sx = legend_start_x + less_text_w + 6
     for i, c in enumerate([t["heat_0"], t["heat_1"], t["heat_2"], t["heat_3"], t["heat_4"]]):
-        svg.append(f'  <rect x="{legend_x + i*15}" y="{legend_y - 6}" width="10" height="10" rx="2" fill="{c}"/>')
-    svg.append(f'  <text x="{legend_x + 5*15 + 4}" y="{legend_y + 2}" font-family="-apple-system,sans-serif" font-size="9" fill="{t["text_muted"]}">More</text>')
+        svg.append(f'  <rect x="{sx + i*(swatch_size+swatch_gap)}" y="{legend_baseline - 9}" width="{swatch_size}" height="{swatch_size}" rx="2" fill="{c}"/>')
+    text_x = sx + swatches_total_w + 6
+    svg.append(f'  <text x="{text_x}" y="{legend_baseline}" font-family="-apple-system,sans-serif" font-size="10" fill="{t["text_muted"]}">More</text>')
 
     svg.append('</svg>')
     return "\n".join(svg)

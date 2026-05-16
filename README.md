@@ -23,7 +23,7 @@ Daily auto-generated stats from local `~/.claude/projects/` logs.
   <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-light.svg" alt="Daily Cost Trend" width="720">
 </picture>
 
-**Last update**: 2026-05-16 10:21 KST
+**Last update**: 2026-05-16 10:30 KST
 
 <!-- CLAUDE_STATS_END -->
 
