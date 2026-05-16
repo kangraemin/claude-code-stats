@@ -121,35 +121,39 @@ def compute_summary(daily):
 def svg_stats_card(summary, daily, by_model, theme="dark"):
     if not summary: return ""
     t = THEMES[theme]
-    w, h = 520, 220
+    w, h = 540, 340
     card_radius = 8
 
     days_sorted = sorted(daily.keys())
     costs = [daily[d]["cost"] for d in days_sorted]
     n = len(costs)
 
-    # 스파크라인 (작은 라인 차트)
-    spark_w, spark_h = 200, 50
-    spark_x, spark_y = w - spark_w - 25, h - spark_h - 30
+    # 스파크라인
+    spark_w, spark_h = 270, 40
+    spark_x = w - spark_w - 22
+    spark_y = h - spark_h - 28
     max_c = max(costs) if costs else 1
     if n > 1:
         pts = " ".join(f"{spark_x + i / (n-1) * spark_w:.1f},{spark_y + spark_h - costs[i] / max_c * spark_h:.1f}" for i in range(n))
-        area_pts = f"{spark_x},{spark_y + spark_h} " + pts + f" {spark_x + spark_w},{spark_y + spark_h}"
+        area_pts = f"{spark_x:.1f},{spark_y + spark_h} " + pts + f" {spark_x + spark_w:.1f},{spark_y + spark_h}"
     else:
         pts = ""; area_pts = ""
 
     # 본전 배수 (Max $200 가정)
-    monthly_cost = summary["total_cost"] / max((datetime.strptime(summary["last_day"], "%Y-%m-%d").date() - datetime.strptime(summary["first_day"], "%Y-%m-%d").date()).days / 30, 1)
-    roi = monthly_cost / 200
-
+    period_days = max((datetime.strptime(summary["last_day"], "%Y-%m-%d").date() - datetime.strptime(summary["first_day"], "%Y-%m-%d").date()).days, 1)
+    monthly_cost = summary["total_cost"] / max(period_days / 30, 1)
     rank_label, rank_color = "Heavy User 🔥", t["orange"]
-    if monthly_cost > 5000: rank_label, rank_color = "Top 1% 🚀", t["purple"]
-    elif monthly_cost > 1000: rank_label, rank_color = "Power User ⚡", t["accent"]
+    if monthly_cost > 5000:
+        rank_label, rank_color = "Top 1% 🚀", t["purple"]
+    elif monthly_cost > 1000:
+        rank_label, rank_color = "Power User ⚡", t["accent"]
+
+    avg_tokens = summary["total_tokens"] / summary["total_days"]
 
     svg = f'''<svg width="{w}" height="{h}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="{t['accent']}" stop-opacity="0.05"/>
+      <stop offset="0%" stop-color="{t['accent']}" stop-opacity="0.06"/>
       <stop offset="100%" stop-color="{t['green']}" stop-opacity="0.02"/>
     </linearGradient>
     <linearGradient id="costGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -157,7 +161,7 @@ def svg_stats_card(summary, daily, by_model, theme="dark"):
       <stop offset="100%" stop-color="{t['accent']}"/>
     </linearGradient>
     <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="{t['accent']}" stop-opacity="0.4"/>
+      <stop offset="0%" stop-color="{t['accent']}" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="{t['accent']}" stop-opacity="0"/>
     </linearGradient>
   </defs>
@@ -165,39 +169,48 @@ def svg_stats_card(summary, daily, by_model, theme="dark"):
   <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="{card_radius}" fill="{t['bg']}" stroke="{t['border']}" stroke-width="1"/>
   <rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="{card_radius}" fill="url(#bgGrad)"/>
 
-  <!-- 헤더 -->
-  <text x="22" y="32" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="{t['accent']}">🤖 Claude Code Usage</text>
-  <text x="22" y="50" font-family="-apple-system,sans-serif" font-size="11" fill="{t['text_muted']}">{summary['first_day']} → {summary['last_day']} · {summary['total_days']} days</text>
+  <!-- Header -->
+  <text x="22" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="{t['accent']}">🤖 Claude Code Usage</text>
+  <text x="22" y="52" font-family="-apple-system,sans-serif" font-size="11" fill="{t['text_muted']}">{summary['first_day']} → {summary['last_day']} · {summary['total_days']} active days</text>
 
   <!-- Rank 배지 -->
-  <rect x="{w - 130}" y="18" width="108" height="22" rx="11" fill="{rank_color}" fill-opacity="0.15" stroke="{rank_color}" stroke-width="0.8"/>
-  <text x="{w - 76}" y="33" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="{rank_color}" text-anchor="middle">{rank_label}</text>
+  <rect x="{w - 132}" y="20" width="110" height="22" rx="11" fill="{rank_color}" fill-opacity="0.15" stroke="{rank_color}" stroke-width="0.8"/>
+  <text x="{w - 77}" y="35" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="{rank_color}" text-anchor="middle">{rank_label}</text>
 
-  <!-- Total Cost (큰 강조) -->
-  <text x="22" y="92" font-family="-apple-system,sans-serif" font-size="11" fill="{t['text_muted']}" letter-spacing="0.5">TOTAL COST</text>
-  <text x="22" y="125" font-family="-apple-system,sans-serif" font-size="34" font-weight="800" fill="url(#costGrad)">${summary['total_cost']:,.0f}<animate attributeName="opacity" from="0" to="1" dur="1s" fill="freeze"/></text>
-  <text x="22" y="143" font-family="-apple-system,sans-serif" font-size="10" fill="{t['text_muted']}">≈ {round(summary['total_cost'] * 1400):,}원 (정가 기준)</text>
+  <!-- Total Cost (메인 강조) -->
+  <text x="22" y="86" font-family="-apple-system,sans-serif" font-size="10" fill="{t['text_muted']}" letter-spacing="0.8">TOTAL COST (정가 기준 추정)</text>
+  <text x="22" y="120" font-family="-apple-system,sans-serif" font-size="32" font-weight="800" fill="url(#costGrad)">${summary['total_cost']:,.0f}</text>
+  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="{t['text_muted']}">≈ {round(summary['total_cost'] * 1400):,}원</text>
 
-  <!-- 통계 4행 -->
-  <g font-family="-apple-system,sans-serif" font-size="12">
-    <text x="22" y="170" fill="{t['text_muted']}">🔥 Tokens</text>
-    <text x="135" y="170" fill="{t['text']}" font-weight="600">{summary['total_tokens']/1e9:.2f}B</text>
+  <!-- 2x3 그리드 통계 -->
+  <g font-family="-apple-system,sans-serif">
+    <!-- Row 1 -->
+    <text x="22" y="172" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">📊 AVG / DAY</text>
+    <text x="22" y="194" font-size="18" font-weight="700" fill="{t['text']}">${summary['avg_cost']:,.0f}</text>
 
-    <text x="22" y="190" fill="{t['text_muted']}">💬 Responses</text>
-    <text x="135" y="190" fill="{t['text']}" font-weight="600">{summary['total_msgs']:,}</text>
+    <text x="200" y="172" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">🔥 TOTAL TOKENS</text>
+    <text x="200" y="194" font-size="18" font-weight="700" fill="{t['accent']}">{summary['total_tokens']/1e9:.2f}B</text>
 
-    <text x="22" y="210" fill="{t['text_muted']}">🏆 Best Day</text>
-    <text x="135" y="210" fill="{t['orange']}" font-weight="600">${summary['max_cost']:,.0f}</text>
+    <text x="378" y="172" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">📦 AVG TOKENS/DAY</text>
+    <text x="378" y="194" font-size="18" font-weight="700" fill="{t['text']}">{avg_tokens/1e6:.0f}M</text>
+
+    <!-- Row 2 -->
+    <text x="22" y="226" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">💬 RESPONSES</text>
+    <text x="22" y="248" font-size="18" font-weight="700" fill="{t['text']}">{summary['total_msgs']:,}</text>
+
+    <text x="200" y="226" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">📅 AVG MSGS/DAY</text>
+    <text x="200" y="248" font-size="18" font-weight="700" fill="{t['text']}">{summary['avg_msgs']:,.0f}</text>
+
+    <text x="378" y="226" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">🏆 BEST DAY</text>
+    <text x="378" y="248" font-size="18" font-weight="700" fill="{t['orange']}">${summary['max_cost']:,.0f}</text>
   </g>
 
   <!-- 스파크라인 -->
-  <text x="{spark_x + spark_w}" y="{spark_y - 8}" font-family="-apple-system,sans-serif" font-size="10" fill="{t['text_muted']}" text-anchor="end">Daily cost trend</text>
+  <text x="22" y="{spark_y - 8}" font-family="-apple-system,sans-serif" font-size="10" fill="{t['text_muted']}" letter-spacing="0.5">📈 DAILY COST TREND</text>
   <polygon points="{area_pts}" fill="url(#sparkGrad)"/>
-  <polyline points="{pts}" fill="none" stroke="{t['accent']}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
-    <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="2s" fill="freeze"/>
-  </polyline>
+  <polyline points="{pts}" fill="none" stroke="{t['accent']}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 
-  <!-- 우하단 update -->
+  <!-- Footer -->
   <text x="{w - 22}" y="{h - 8}" font-family="-apple-system,sans-serif" font-size="9" fill="{t['text_muted']}" text-anchor="end">Updated: {datetime.now().strftime("%Y-%m-%d %H:%M KST")}</text>
 </svg>'''
     return svg
@@ -259,9 +272,7 @@ def svg_heatmap(daily, theme="dark"):
             y = label_h + offset * col_width
             c = color(cost)
             tooltip = f'{d_str}: ${cost:,.0f}' if cost > 0 else f'{d_str}'
-            # fade-in 애니메이션
-            delay = (cell_id * 0.5) / 371  # 약 0.5s 분산
-            svg.append(f'  <rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" fill="{c}" opacity="0"><title>{tooltip}</title><animate attributeName="opacity" from="0" to="1" begin="{delay:.2f}s" dur="0.3s" fill="freeze"/></rect>')
+            svg.append(f'  <rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" fill="{c}"><title>{tooltip}</title></rect>')
             cell_id += 1
 
         if cur.month != last_month_drawn:
@@ -343,15 +354,14 @@ def svg_daily_cost(daily, theme="dark"):
 
     points = [f"{xpos(i):.1f},{ypos(c):.1f}" for i, c in enumerate(costs)]
     area = f"M{pad_l:.1f},{(pad_t + plot_h):.1f} L " + " L ".join(points) + f" L {(w-pad_r):.1f},{(pad_t + plot_h):.1f} Z"
-    svg.append(f'  <path d="{area}" fill="url(#lineFill)" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="0.5s" dur="0.8s" fill="freeze"/></path>')
+    svg.append(f'  <path d="{area}" fill="url(#lineFill)"/>')
 
     line_path = "M " + " L ".join(points)
-    # path length 추정 (대략 plot_w 정도)
-    svg.append(f'  <path d="{line_path}" stroke="{t["accent"]}" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2000" stroke-dashoffset="2000"><animate attributeName="stroke-dashoffset" from="2000" to="0" dur="2s" fill="freeze"/></path>')
+    svg.append(f'  <path d="{line_path}" stroke="{t["accent"]}" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>')
 
     max_i = costs.index(max(costs))
-    svg.append(f'  <circle cx="{xpos(max_i):.1f}" cy="{ypos(costs[max_i]):.1f}" r="4" fill="{t["orange"]}" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="2s" dur="0.3s" fill="freeze"/><animate attributeName="r" from="4" to="6" begin="2s" dur="1s" repeatCount="indefinite"/></circle>')
-    svg.append(f'  <text x="{xpos(max_i):.1f}" y="{ypos(costs[max_i])-10:.1f}" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" fill="{t["orange"]}" text-anchor="middle" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="2s" dur="0.3s" fill="freeze"/>${costs[max_i]:,.0f}</text>')
+    svg.append(f'  <circle cx="{xpos(max_i):.1f}" cy="{ypos(costs[max_i]):.1f}" r="4" fill="{t["orange"]}"/>')
+    svg.append(f'  <text x="{xpos(max_i):.1f}" y="{ypos(costs[max_i])-10:.1f}" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" fill="{t["orange"]}" text-anchor="middle">${costs[max_i]:,.0f}</text>')
 
     svg.append('</svg>')
     return "\n".join(svg)
