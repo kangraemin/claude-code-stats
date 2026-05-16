@@ -2,6 +2,10 @@
 
 Daily auto-generated stats from local `~/.claude/projects/` logs.
 
+**🌐 [📊 인터랙티브 대시보드 보기 →](https://kangraemin.github.io/claude-code-stats/)**
+
+(hover/zoom/필터 가능 · Chart.js 기반 · 매일 06:00 KST 갱신)
+
 <!-- CLAUDE_STATS_START -->
 
 ![Claude Code Usage](./assets/stats-card.svg)
