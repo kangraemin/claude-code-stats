@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🤖 Claude Code Stats — kangraemin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #7ee787;
+    --orange: #f78166;
+    --purple: #d2a8ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, rgba(88,166,255,0.1), rgba(126,231,135,0.05));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  header h1 { font-size: 28px; margin-bottom: 8px; color: var(--accent); }
+  header .subtitle { color: var(--text-muted); font-size: 14px; }
+  header .period { margin-top: 10px; font-size: 13px; color: var(--text-muted); }
+
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card .label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card .value { font-size: 28px; font-weight: 700; line-height: 1.2; }
+  .card .sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  .card-accent .value { color: var(--accent); }
+  .card-green .value { color: var(--green); }
+  .card-orange .value { color: var(--orange); }
+  .card-purple .value { color: var(--purple); }
+
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .panel h2 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .panel h2 .small { font-weight: 400; color: var(--text-muted); font-size: 12px; margin-left: 8px; }
+  .chart-wrap { position: relative; height: 320px; }
+  .chart-wrap-small { position: relative; height: 280px; }
+
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 768px) {
+    .row-2 { grid-template-columns: 1fr; }
+    .card .value { font-size: 22px; }
+  }
+
+  /* Heatmap */
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(53, 12px);
+    grid-template-rows: repeat(7, 12px);
+    gap: 3px;
+    overflow-x: auto;
+    padding: 4px 0;
+  }
+  .heatmap-cell {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  .heatmap-cell:hover { transform: scale(1.5); outline: 1px solid var(--text); }
+  .heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: flex-end;
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .heatmap-legend .swatch { width: 10px; height: 10px; border-radius: 2px; }
+
+  .tooltip {
+    position: fixed;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--text);
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 20px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🤖 Claude Code Usage Stats</h1>
+    <div class="subtitle">kangraemin — auto-updated daily</div>
+    <div class="period" id="period">Loading...</div>
+  </header>
+
+  <div id="loading" class="loading">데이터 로딩 중...</div>
+
+  <div id="content" style="display:none;">
+    <!-- 통계 카드 -->
+    <div class="grid-cards">
+      <div class="card card-green">
+        <div class="label">💰 Total Cost (est)</div>
+        <div class="value" id="total-cost">$0</div>
+        <div class="sub" id="cost-sub">정가 환산</div>
+      </div>
+      <div class="card card-accent">
+        <div class="label">🔥 Total Tokens</div>
+        <div class="value" id="total-tokens">0</div>
+        <div class="sub" id="tokens-sub">누적</div>
+      </div>
+      <div class="card">
+        <div class="label">💬 Total Responses</div>
+        <div class="value" id="total-msgs">0</div>
+        <div class="sub" id="msgs-sub">누적</div>
+      </div>
+      <div class="card card-orange">
+        <div class="label">🏆 Heaviest Day</div>
+        <div class="value" id="max-cost">$0</div>
+        <div class="sub" id="max-day"></div>
+      </div>
+      <div class="card card-purple">
+        <div class="label">📅 Active Days</div>
+        <div class="value" id="active-days">0</div>
+        <div class="sub" id="active-sub">전체 기간 중</div>
+      </div>
+      <div class="card">
+        <div class="label">📊 Daily Average</div>
+        <div class="value" id="avg-cost">$0</div>
+        <div class="sub">활동일 기준</div>
+      </div>
+    </div>
+
+    <!-- 라인 차트 -->
+    <div class="panel">
+      <h2>📈 일별 비용 추이 <span class="small">마우스 hover로 디테일</span></h2>
+      <div class="chart-wrap"><canvas id="lineChart"></canvas></div>
+    </div>
+
+    <!-- Heatmap (인터랙티브) -->
+    <div class="panel">
+      <h2>🌱 활동 히트맵 (최근 1년) <span class="small">셀 hover로 디테일</span></h2>
+      <div id="heatmap-container" style="overflow-x: auto;">
+        <div class="heatmap-grid" id="heatmap"></div>
+      </div>
+      <div class="heatmap-legend">
+        <span>Less</span>
+        <div class="swatch" style="background:#161b22"></div>
+        <div class="swatch" style="background:#0e4429"></div>
+        <div class="swatch" style="background:#006d32"></div>
+        <div class="swatch" style="background:#26a641"></div>
+        <div class="swatch" style="background:#39d353"></div>
+        <span>More</span>
+      </div>
+    </div>
+
+    <!-- 모델별 / 월별 -->
+    <div class="row-2">
+      <div class="panel">
+        <h2>🎯 모델별 비용 분포 <span class="small">클릭으로 토글</span></h2>
+        <div class="chart-wrap-small"><canvas id="modelChart"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>📅 월별 사용 트렌드</h2>
+        <div class="chart-wrap-small"><canvas id="monthChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>매일 06:00 KST 자동 갱신</p>
+    <p>
+      <a href="https://github.com/kangraemin/claude-code-stats">GitHub Repo</a> ·
+      <a href="https://github.com/kangraemin">Profile</a>
+    </p>
+    <p style="margin-top:8px; font-size:11px;">
+      ⚠️ 비용은 Anthropic 정가 기준 추정. Pro/Max 구독 정액과 다름.
+    </p>
+  </footer>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// 카운트업 애니메이션
+function countUp(el, target, suffix = '', prefix = '', decimals = 0, duration = 1200) {
+  const start = performance.now();
+  function frame(t) {
+    const p = Math.min((t - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val = target * eased;
+    el.textContent = prefix + val.toLocaleString('en-US', { maximumFractionDigits: decimals, minimumFractionDigits: decimals }) + suffix;
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function fmtBig(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+  if (n >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
+  return n.toString();
+}
+
+function tooltip(html, x, y) {
+  const t = $('tooltip');
+  t.innerHTML = html;
+  t.style.display = 'block';
+  t.style.left = (x + 10) + 'px';
+  t.style.top = (y + 10) + 'px';
+}
+function hideTooltip() { $('tooltip').style.display = 'none'; }
+
+async function load() {
+  try {
+    const res = await fetch('./data/stats.json?_=' + Date.now());
+    if (!res.ok) throw new Error('stats.json fetch failed');
+    const data = await res.json();
+    render(data);
+  } catch (e) {
+    $('loading').textContent = '데이터 로딩 실패: ' + e.message;
+  }
+}
+
+function render(data) {
+  $('loading').style.display = 'none';
+  $('content').style.display = 'block';
+
+  const s = data.summary;
+  $('period').textContent = `${s.first_day} ~ ${s.last_day} · ${s.total_days}일 활동`;
+
+  // 카운트업 카드
+  countUp($('total-cost'), s.total_cost, '', '$', 0);
+  countUp($('total-tokens'), s.total_tokens / 1e9, 'B', '', 2);
+  countUp($('total-msgs'), s.total_msgs, '');
+  countUp($('max-cost'), s.max_cost, '', '$', 0);
+  $('max-day').textContent = s.heaviest_day;
+  countUp($('active-days'), s.total_days, '');
+  countUp($('avg-cost'), s.avg_cost, '', '$', 0);
+  $('cost-sub').textContent = `약 ${Math.round(s.total_cost * 1400).toLocaleString()}원 (정가)`;
+  $('tokens-sub').textContent = `${s.total_tokens.toLocaleString()} 개`;
+  $('msgs-sub').textContent = `일평균 ${Math.round(s.avg_msgs).toLocaleString()}개`;
+
+  // 라인 차트 (일별 비용)
+  const dailyEntries = Object.entries(data.daily).sort();
+  const labels = dailyEntries.map(([d]) => d);
+  const costs = dailyEntries.map(([_, v]) => v.cost);
+
+  Chart.defaults.color = '#c9d1d9';
+  Chart.defaults.borderColor = '#30363d';
+
+  new Chart($('lineChart'), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Daily Cost (USD)',
+        data: costs,
+        borderColor: '#58a6ff',
+        backgroundColor: 'rgba(88,166,255,0.2)',
+        fill: true,
+        tension: 0.2,
+        pointRadius: 2,
+        pointHoverRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const d = labels[ctx.dataIndex];
+              const v = data.daily[d];
+              return [
+                `비용: $${v.cost.toFixed(2)}`,
+                `응답: ${v.msgs.toLocaleString()}개`,
+                `토큰: ${fmtBig(v.input + v.cache_c + v.cache_r + v.output)}`,
+              ];
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } },
+        y: { ticks: { callback: v => '$' + v } }
+      }
+    }
+  });
+
+  // 모델별 도넛 차트
+  const modelEntries = Object.entries(data.by_model).sort((a,b) => b[1].cost - a[1].cost);
+  new Chart($('modelChart'), {
+    type: 'doughnut',
+    data: {
+      labels: modelEntries.map(([m]) => m.replace('claude-', '')),
+      datasets: [{
+        data: modelEntries.map(([_, v]) => v.cost),
+        backgroundColor: ['#58a6ff', '#7ee787', '#f78166', '#d2a8ff', '#ffa657', '#79c0ff'],
+        borderColor: '#161b22',
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 10, font: { size: 11 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const v = modelEntries[ctx.dataIndex][1];
+              const total = modelEntries.reduce((s, [_, x]) => s + x.cost, 0);
+              const pct = (v.cost / total * 100).toFixed(1);
+              return `$${v.cost.toFixed(0)} (${pct}%) · ${v.msgs.toLocaleString()} msgs`;
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // 월별 막대 차트
+  const monthly = {};
+  Object.entries(data.daily).forEach(([d, v]) => {
+    const m = d.substring(0, 7);
+    if (!monthly[m]) monthly[m] = { cost: 0, msgs: 0, days: 0 };
+    monthly[m].cost += v.cost;
+    monthly[m].msgs += v.msgs;
+    monthly[m].days += 1;
+  });
+  const monthLabels = Object.keys(monthly).sort();
+  new Chart($('monthChart'), {
+    type: 'bar',
+    data: {
+      labels: monthLabels,
+      datasets: [{
+        label: 'Monthly Cost',
+        data: monthLabels.map(m => monthly[m].cost),
+        backgroundColor: '#58a6ff',
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const m = monthLabels[ctx.dataIndex];
+              const v = monthly[m];
+              return [
+                `비용: $${v.cost.toFixed(0)}`,
+                `응답: ${v.msgs.toLocaleString()}`,
+                `활동일: ${v.days}일`,
+                `일평균: $${(v.cost / v.days).toFixed(0)}`,
+              ];
+            }
+          }
+        }
+      },
+      scales: { y: { ticks: { callback: v => '$' + v } } }
+    }
+  });
+
+  // 히트맵 (1년)
+  renderHeatmap(data.daily);
+}
+
+function renderHeatmap(daily) {
+  const container = $('heatmap');
+  container.innerHTML = '';
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  // 1년 전 일요일부터
+  const end = new Date(today);
+  const endDow = end.getDay(); // 0=Sun, 6=Sat
+  const lastSat = new Date(end);
+  lastSat.setDate(end.getDate() + (6 - endDow));
+  const start = new Date(lastSat);
+  start.setDate(lastSat.getDate() - (52 * 7 + 6));
+
+  const maxCost = Math.max(...Object.values(daily).map(v => v.cost), 1);
+  function color(cost) {
+    if (cost === 0) return '#161b22';
+    const r = cost / maxCost;
+    if (r < 0.1) return '#0e4429';
+    if (r < 0.3) return '#006d32';
+    if (r < 0.6) return '#26a641';
+    return '#39d353';
+  }
+
+  // 53컬럼 × 7행 (CSS Grid는 row first, but column first 가 필요 → grid-auto-flow:column)
+  container.style.gridAutoFlow = 'column';
+  container.style.gridTemplateColumns = `repeat(53, 12px)`;
+  container.style.gridTemplateRows = `repeat(7, 12px)`;
+
+  const cur = new Date(start);
+  for (let col = 0; col < 53; col++) {
+    for (let row = 0; row < 7; row++) {
+      const d = new Date(cur);
+      d.setDate(start.getDate() + col * 7 + row);
+      if (d > today) {
+        // 미래 셀은 빈 div
+        const empty = document.createElement('div');
+        empty.style.width = '12px'; empty.style.height = '12px';
+        container.appendChild(empty);
+        continue;
+      }
+      const dStr = d.toISOString().split('T')[0];
+      const v = daily[dStr] || { cost: 0, msgs: 0, input: 0, cache_c: 0, cache_r: 0, output: 0 };
+      const cell = document.createElement('div');
+      cell.className = 'heatmap-cell';
+      cell.style.background = color(v.cost);
+      cell.dataset.date = dStr;
+      cell.addEventListener('mouseenter', e => {
+        const tot = v.input + v.cache_c + v.cache_r + v.output;
+        const html = `<strong>${dStr}</strong><br>비용: $${v.cost.toFixed(2)}<br>응답: ${v.msgs.toLocaleString()}<br>토큰: ${fmtBig(tot)}`;
+        tooltip(html, e.clientX, e.clientY);
+      });
+      cell.addEventListener('mouseleave', hideTooltip);
+      cell.addEventListener('mousemove', e => {
+        const t = $('tooltip');
+        t.style.left = (e.clientX + 10) + 'px';
+        t.style.top = (e.clientY + 10) + 'px';
+      });
+      container.appendChild(cell);
+    }
+  }
+}
+
+load();
+</script>
+</body>
+</html>
