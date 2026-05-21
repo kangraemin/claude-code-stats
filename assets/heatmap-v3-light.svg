@@ -350,9 +350,9 @@
   <rect x="737" y="67" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-04-15</title></rect>
   <rect x="737" y="82" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-04-16</title></rect>
   <rect x="737" y="97" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-04-17</title></rect>
-  <rect x="737" y="112" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-04-18: $2</title></rect>
-  <rect x="752" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-04-19: $1,894</title></rect>
-  <rect x="752" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-04-20: $144</title></rect>
+  <rect x="737" y="112" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-04-18</title></rect>
+  <rect x="752" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-04-19</title></rect>
+  <rect x="752" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-04-20: $39</title></rect>
   <rect x="752" y="52" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-04-21: $55</title></rect>
   <rect x="752" y="67" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-04-22: $86</title></rect>
   <rect x="752" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-04-23: $53</title></rect>
@@ -383,6 +383,7 @@
   <rect x="812" y="22" width="12" height="12" rx="2" fill="#216e39"><title>2026-05-17: $4,749</title></rect>
   <rect x="812" y="37" width="12" height="12" rx="2" fill="#30a14e"><title>2026-05-18: $3,379</title></rect>
   <rect x="812" y="52" width="12" height="12" rx="2" fill="#216e39"><title>2026-05-19: $4,992</title></rect>
-  <rect x="812" y="67" width="12" height="12" rx="2" fill="#30a14e"><title>2026-05-20: $2,668</title></rect>
-  <rect x="812" y="82" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-05-21</title></rect>
+  <rect x="812" y="67" width="12" height="12" rx="2" fill="#30a14e"><title>2026-05-20: $3,656</title></rect>
+  <rect x="812" y="82" width="12" height="12" rx="2" fill="#216e39"><title>2026-05-21: $5,621</title></rect>
+  <rect x="812" y="97" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-05-22</title></rect>
 </svg>
