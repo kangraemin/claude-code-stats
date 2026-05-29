@@ -17,7 +17,7 @@ Daily auto-generated stats from local `~/.claude/projects/` logs.
 <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-v3-dark.svg#gh-dark-mode-only" alt="Daily Cost Trend" width="720">
 <img src="https://raw.githubusercontent.com/kangraemin/claude-code-stats/main/assets/daily-cost-v3-light.svg#gh-light-mode-only" alt="Daily Cost Trend" width="720">
 
-**Last update**: 2026-05-29 06:01 KST
+**Last update**: 2026-05-30 06:05 KST
 
 <!-- CLAUDE_STATS_END -->
 
