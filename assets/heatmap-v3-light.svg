@@ -347,8 +347,8 @@
   <rect x="737" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-05-04</title></rect>
   <rect x="737" y="52" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-05-05</title></rect>
   <rect x="737" y="67" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-06: $1</title></rect>
-  <rect x="737" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-07: $42</title></rect>
-  <rect x="737" y="97" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-08: $41</title></rect>
+  <rect x="737" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-07: $15</title></rect>
+  <rect x="737" y="97" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-08: $32</title></rect>
   <rect x="737" y="112" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-09: $1,293</title></rect>
   <text x="737" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">May</text>
   <rect x="752" y="22" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-05-10: $391</title></rect>
@@ -379,7 +379,8 @@
   <rect x="797" y="82" width="12" height="12" rx="2" fill="#30a14e"><title>2026-06-04: $8,859</title></rect>
   <rect x="797" y="97" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-05: $1,728</title></rect>
   <rect x="797" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-06-06: $8,729</title></rect>
-  <rect x="812" y="22" width="12" height="12" rx="2" fill="#216e39"><title>2026-06-07: $12,840</title></rect>
-  <rect x="812" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-08</title></rect>
+  <rect x="812" y="22" width="12" height="12" rx="2" fill="#216e39"><title>2026-06-07: $14,102</title></rect>
+  <rect x="812" y="37" width="12" height="12" rx="2" fill="#40c463"><title>2026-06-08: $2,431</title></rect>
+  <rect x="812" y="52" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-09</title></rect>
   <text x="812" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Jun</text>
 </svg>
