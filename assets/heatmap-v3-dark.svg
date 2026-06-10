@@ -347,11 +347,11 @@
   <rect x="737" y="37" width="12" height="12" rx="2" fill="#161b22"><title>2026-05-04</title></rect>
   <rect x="737" y="52" width="12" height="12" rx="2" fill="#161b22"><title>2026-05-05</title></rect>
   <rect x="737" y="67" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-06: $1</title></rect>
-  <rect x="737" y="82" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-07: $15</title></rect>
-  <rect x="737" y="97" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-08: $32</title></rect>
-  <rect x="737" y="112" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-09: $1,293</title></rect>
+  <rect x="737" y="82" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-07: $6</title></rect>
+  <rect x="737" y="97" width="12" height="12" rx="2" fill="#161b22"><title>2026-05-08</title></rect>
+  <rect x="737" y="112" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-09: $124</title></rect>
   <text x="737" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e">May</text>
-  <rect x="752" y="22" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-10: $391</title></rect>
+  <rect x="752" y="22" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-10: $20</title></rect>
   <rect x="752" y="37" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-11: $573</title></rect>
   <rect x="752" y="52" width="12" height="12" rx="2" fill="#006d32"><title>2026-05-12: $1,905</title></rect>
   <rect x="752" y="67" width="12" height="12" rx="2" fill="#0e4429"><title>2026-05-13: $1,428</title></rect>
@@ -381,7 +381,8 @@
   <rect x="797" y="112" width="12" height="12" rx="2" fill="#26a641"><title>2026-06-06: $8,729</title></rect>
   <rect x="812" y="22" width="12" height="12" rx="2" fill="#39d353"><title>2026-06-07: $14,102</title></rect>
   <rect x="812" y="37" width="12" height="12" rx="2" fill="#006d32"><title>2026-06-08: $2,432</title></rect>
-  <rect x="812" y="52" width="12" height="12" rx="2" fill="#161b22"><title>2026-06-09</title></rect>
+  <rect x="812" y="52" width="12" height="12" rx="2" fill="#0e4429"><title>2026-06-09: $2</title></rect>
   <rect x="812" y="67" width="12" height="12" rx="2" fill="#161b22"><title>2026-06-10</title></rect>
+  <rect x="812" y="82" width="12" height="12" rx="2" fill="#161b22"><title>2026-06-11</title></rect>
   <text x="812" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e">Jun</text>
 </svg>
