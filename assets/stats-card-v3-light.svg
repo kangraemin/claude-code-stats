@@ -19,7 +19,7 @@
 
   <!-- Header -->
   <text x="22" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#0969da">🤖 Claude Code Usage</text>
-  <text x="22" y="52" font-family="-apple-system,sans-serif" font-size="11" fill="#656d76">2026-05-06 → 2026-06-12 · 37 active days</text>
+  <text x="22" y="52" font-family="-apple-system,sans-serif" font-size="11" fill="#656d76">2026-05-06 → 2026-06-13 · 38 active days</text>
 
   <!-- Rank 배지 -->
   <rect x="408" y="20" width="110" height="22" rx="11" fill="#8250df" fill-opacity="0.15" stroke="#8250df" stroke-width="0.8"/>
@@ -27,27 +27,27 @@
 
   <!-- Total Cost (메인 강조) -->
   <text x="22" y="86" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" letter-spacing="0.8">TOTAL COST (정가 기준 추정)</text>
-  <text x="22" y="120" font-family="-apple-system,sans-serif" font-size="32" font-weight="800" fill="url(#costGrad)">$132,555</text>
-  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76">≈ 185,576,607원</text>
+  <text x="22" y="120" font-family="-apple-system,sans-serif" font-size="32" font-weight="800" fill="url(#costGrad)">$132,556</text>
+  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76">≈ 185,578,031원</text>
 
   <!-- 2x3 그리드 통계 -->
   <g font-family="-apple-system,sans-serif">
     <!-- Row 1 -->
     <text x="22" y="172" font-size="10" fill="#656d76" letter-spacing="0.5">📊 AVG / DAY</text>
-    <text x="22" y="194" font-size="18" font-weight="700" fill="#1f2328">$3,583</text>
+    <text x="22" y="194" font-size="18" font-weight="700" fill="#1f2328">$3,488</text>
 
     <text x="200" y="172" font-size="10" fill="#656d76" letter-spacing="0.5">🔥 TOTAL TOKENS</text>
     <text x="200" y="194" font-size="18" font-weight="700" fill="#0969da">68.81B</text>
 
     <text x="378" y="172" font-size="10" fill="#656d76" letter-spacing="0.5">📦 AVG TOKENS/DAY</text>
-    <text x="378" y="194" font-size="18" font-weight="700" fill="#1f2328">1860M</text>
+    <text x="378" y="194" font-size="18" font-weight="700" fill="#1f2328">1811M</text>
 
     <!-- Row 2 -->
     <text x="22" y="226" font-size="10" fill="#656d76" letter-spacing="0.5">💬 RESPONSES</text>
-    <text x="22" y="248" font-size="18" font-weight="700" fill="#1f2328">195,273</text>
+    <text x="22" y="248" font-size="18" font-weight="700" fill="#1f2328">195,275</text>
 
     <text x="200" y="226" font-size="10" fill="#656d76" letter-spacing="0.5">📅 AVG MSGS/DAY</text>
-    <text x="200" y="248" font-size="18" font-weight="700" fill="#1f2328">5,278</text>
+    <text x="200" y="248" font-size="18" font-weight="700" fill="#1f2328">5,139</text>
 
     <text x="378" y="226" font-size="10" fill="#656d76" letter-spacing="0.5">🏆 BEST DAY</text>
     <text x="378" y="248" font-size="18" font-weight="700" fill="#cf222e">$18,703</text>
@@ -55,9 +55,9 @@
 
   <!-- 스파크라인 -->
   <text x="22" y="264" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" letter-spacing="0.5">📈 DAILY COST TREND</text>
-  <polygon points="248.0,312 248.0,312.0 255.5,312.0 263.0,311.9 270.5,312.0 278.0,311.9 285.5,312.0 293.0,312.0 300.5,311.4 308.0,305.4 315.5,295.8 323.0,301.8 330.5,304.8 338.0,301.3 345.5,304.2 353.0,299.2 360.5,303.9 368.0,306.4 375.5,304.8 383.0,303.2 390.5,303.2 398.0,305.3 405.5,302.4 413.0,309.4 420.5,309.1 428.0,292.1 435.5,303.5 443.0,306.3 450.5,272.0 458.0,293.1 465.5,308.3 473.0,293.3 480.5,281.8 488.0,306.8 495.5,312.0 503.0,312.0 510.5,312.0 518.0,312.0 518.0,312" fill="url(#sparkGrad)"/>
-  <polyline points="248.0,312.0 255.5,312.0 263.0,311.9 270.5,312.0 278.0,311.9 285.5,312.0 293.0,312.0 300.5,311.4 308.0,305.4 315.5,295.8 323.0,301.8 330.5,304.8 338.0,301.3 345.5,304.2 353.0,299.2 360.5,303.9 368.0,306.4 375.5,304.8 383.0,303.2 390.5,303.2 398.0,305.3 405.5,302.4 413.0,309.4 420.5,309.1 428.0,292.1 435.5,303.5 443.0,306.3 450.5,272.0 458.0,293.1 465.5,308.3 473.0,293.3 480.5,281.8 488.0,306.8 495.5,312.0 503.0,312.0 510.5,312.0 518.0,312.0" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="248.0,312 248.0,312.0 255.3,312.0 262.6,311.9 269.9,312.0 277.2,311.9 284.5,312.0 291.8,312.0 299.1,311.4 306.4,305.4 313.7,295.8 321.0,301.8 328.3,304.8 335.6,301.3 342.9,304.2 350.2,299.2 357.5,303.9 364.8,306.4 372.1,304.8 379.4,303.2 386.6,303.2 393.9,305.3 401.2,302.4 408.5,309.4 415.8,309.1 423.1,292.1 430.4,303.5 437.7,306.3 445.0,272.0 452.3,293.1 459.6,308.3 466.9,293.3 474.2,281.8 481.5,306.8 488.8,312.0 496.1,312.0 503.4,312.0 510.7,312.0 518.0,312.0 518.0,312" fill="url(#sparkGrad)"/>
+  <polyline points="248.0,312.0 255.3,312.0 262.6,311.9 269.9,312.0 277.2,311.9 284.5,312.0 291.8,312.0 299.1,311.4 306.4,305.4 313.7,295.8 321.0,301.8 328.3,304.8 335.6,301.3 342.9,304.2 350.2,299.2 357.5,303.9 364.8,306.4 372.1,304.8 379.4,303.2 386.6,303.2 393.9,305.3 401.2,302.4 408.5,309.4 415.8,309.1 423.1,292.1 430.4,303.5 437.7,306.3 445.0,272.0 452.3,293.1 459.6,308.3 466.9,293.3 474.2,281.8 481.5,306.8 488.8,312.0 496.1,312.0 503.4,312.0 510.7,312.0 518.0,312.0" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 
   <!-- Footer -->
-  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76" text-anchor="end">Updated: 2026-06-14 06:00 KST</text>
+  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76" text-anchor="end">Updated: 2026-06-15 06:00 KST</text>
 </svg>
