@@ -1,31 +1,31 @@
 {
-  "updated_at": "2026-07-04T06:00:05.549399",
+  "updated_at": "2026-07-05T06:00:08.677426",
   "summary": {
     "first_day": "2026-05-31",
-    "last_day": "2026-07-02",
-    "total_days": 31,
+    "last_day": "2026-07-03",
+    "total_days": 32,
     "total_cost": 60935.8264961,
-    "total_msgs": 70544,
+    "total_msgs": 70545,
     "total_tokens": 32636076705,
-    "avg_cost": 1965.671822454839,
-    "median_cost": 1.028037,
+    "avg_cost": 1904.2445780031253,
+    "median_cost": 1.02707625,
     "max_cost": 18702.987910300086,
     "heaviest_day": "2026-06-03",
     "max_msgs": 21794,
     "max_tokens": 9917344488,
-    "avg_msgs": 2275.6129032258063,
-    "avg_tokens": 1052776667.9032258
+    "avg_msgs": 2204.53125,
+    "avg_tokens": 1019877397.03125
   },
   "by_model": {
+    "<synthetic>": {
+      "cost": 0.0,
+      "msgs": 72,
+      "tokens": 0
+    },
     "claude-opus-4-8": {
       "cost": 60921.91349775014,
       "msgs": 69494,
       "tokens": 32566104728
-    },
-    "<synthetic>": {
-      "cost": 0.0,
-      "msgs": 71,
-      "tokens": 0
     },
     "claude-haiku-4-5-20251001": {
       "cost": 13.912998349999976,
@@ -34,6 +34,14 @@
     }
   },
   "daily": {
+    "2026-07-03": {
+      "cost": 0.0,
+      "msgs": 1,
+      "input": 0,
+      "cache_c": 0,
+      "cache_r": 0,
+      "output": 0
+    },
     "2026-06-26": {
       "cost": 1.0181955,
       "msgs": 2,
