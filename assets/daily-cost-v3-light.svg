@@ -8,20 +8,20 @@
   <rect x="0.5" y="0.5" width="719" height="239" rx="6" fill="#ffffff" stroke="#d0d7de"/>
   <text x="360" y="20" font-family="-apple-system,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="middle">📈 Daily Cost (USD)</text>
   <line x1="55" y1="30.0" x2="700" y2="30.0" stroke="#eaeef2" stroke-width="0.5"/>
-  <text x="50" y="33.0" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$18,703</text>
+  <text x="50" y="33.0" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$14,102</text>
   <line x1="55" y1="72.5" x2="700" y2="72.5" stroke="#eaeef2" stroke-width="0.5"/>
-  <text x="50" y="75.5" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$14,027</text>
+  <text x="50" y="75.5" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$10,577</text>
   <line x1="55" y1="115.0" x2="700" y2="115.0" stroke="#eaeef2" stroke-width="0.5"/>
-  <text x="50" y="118.0" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$9,351</text>
+  <text x="50" y="118.0" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$7,051</text>
   <line x1="55" y1="157.5" x2="700" y2="157.5" stroke="#eaeef2" stroke-width="0.5"/>
-  <text x="50" y="160.5" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$4,676</text>
+  <text x="50" y="160.5" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$3,526</text>
   <line x1="55" y1="200.0" x2="700" y2="200.0" stroke="#eaeef2" stroke-width="0.5"/>
   <text x="50" y="203.0" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="end">$0</text>
   <text x="55.0" y="225" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">05월</text>
-  <text x="74.5" y="225" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">06월</text>
-  <text x="660.9" y="225" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">07월</text>
-  <path d="M55.0,200.0 L 55.0,192.3 L 74.5,191.9 L 94.1,176.7 L 113.6,30.0 L 133.2,119.5 L 152.7,184.3 L 172.3,120.7 L 191.8,71.8 L 211.4,177.9 L 230.9,200.0 L 250.5,200.0 L 270.0,200.0 L 289.5,200.0 L 309.1,200.0 L 328.6,200.0 L 348.2,200.0 L 367.7,200.0 L 387.3,200.0 L 406.8,200.0 L 426.4,200.0 L 445.9,200.0 L 465.5,197.1 L 485.0,184.2 L 504.5,200.0 L 524.1,200.0 L 543.6,200.0 L 563.2,200.0 L 582.7,200.0 L 602.3,200.0 L 621.8,200.0 L 641.4,200.0 L 660.9,200.0 L 680.5,200.0 L 700.0,200.0 L 700.0,200.0 Z" fill="url(#lineFill)"/>
-  <path d="M 55.0,192.3 L 74.5,191.9 L 94.1,176.7 L 113.6,30.0 L 133.2,119.5 L 152.7,184.3 L 172.3,120.7 L 191.8,71.8 L 211.4,177.9 L 230.9,200.0 L 250.5,200.0 L 270.0,200.0 L 289.5,200.0 L 309.1,200.0 L 328.6,200.0 L 348.2,200.0 L 367.7,200.0 L 387.3,200.0 L 406.8,200.0 L 426.4,200.0 L 445.9,200.0 L 465.5,197.1 L 485.0,184.2 L 504.5,200.0 L 524.1,200.0 L 543.6,200.0 L 563.2,200.0 L 582.7,200.0 L 602.3,200.0 L 621.8,200.0 L 641.4,200.0 L 660.9,200.0 L 680.5,200.0 L 700.0,200.0" stroke="#0969da" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-  <circle cx="113.6" cy="30.0" r="4" fill="#cf222e"/>
-  <text x="113.6" y="20.0" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" fill="#cf222e" text-anchor="middle">$18,703</text>
+  <text x="74.0" y="225" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">06월</text>
+  <text x="643.1" y="225" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">07월</text>
+  <path d="M55.0,200.0 L 55.0,192.8 L 74.0,190.2 L 92.9,180.1 L 111.9,134.6 L 130.9,182.7 L 149.9,179.2 L 168.8,94.8 L 187.8,30.0 L 206.8,170.7 L 225.7,200.0 L 244.7,200.0 L 263.7,200.0 L 282.6,200.0 L 301.6,200.0 L 320.6,200.0 L 339.6,200.0 L 358.5,200.0 L 377.5,200.0 L 396.5,200.0 L 415.4,200.0 L 434.4,200.0 L 453.4,196.2 L 472.4,179.0 L 491.3,200.0 L 510.3,200.0 L 529.3,200.0 L 548.2,200.0 L 567.2,200.0 L 586.2,200.0 L 605.1,200.0 L 624.1,200.0 L 643.1,200.0 L 662.1,200.0 L 681.0,200.0 L 700.0,200.0 L 700.0,200.0 Z" fill="url(#lineFill)"/>
+  <path d="M 55.0,192.8 L 74.0,190.2 L 92.9,180.1 L 111.9,134.6 L 130.9,182.7 L 149.9,179.2 L 168.8,94.8 L 187.8,30.0 L 206.8,170.7 L 225.7,200.0 L 244.7,200.0 L 263.7,200.0 L 282.6,200.0 L 301.6,200.0 L 320.6,200.0 L 339.6,200.0 L 358.5,200.0 L 377.5,200.0 L 396.5,200.0 L 415.4,200.0 L 434.4,200.0 L 453.4,196.2 L 472.4,179.0 L 491.3,200.0 L 510.3,200.0 L 529.3,200.0 L 548.2,200.0 L 567.2,200.0 L 586.2,200.0 L 605.1,200.0 L 624.1,200.0 L 643.1,200.0 L 662.1,200.0 L 681.0,200.0 L 700.0,200.0" stroke="#0969da" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="187.8" cy="30.0" r="4" fill="#cf222e"/>
+  <text x="187.8" y="20.0" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" fill="#cf222e" text-anchor="middle">$14,102</text>
 </svg>
