@@ -346,7 +346,7 @@
   <rect x="737" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-07</title></rect>
   <rect x="737" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-08</title></rect>
   <rect x="737" y="52" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-09</title></rect>
-  <rect x="737" y="67" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-10: $1</title></rect>
+  <rect x="737" y="67" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-10</title></rect>
   <rect x="737" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-11: $1</title></rect>
   <rect x="737" y="97" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-12: $1</title></rect>
   <rect x="737" y="112" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-13: $1</title></rect>
@@ -381,4 +381,5 @@
   <rect x="797" y="112" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-11</title></rect>
   <text x="797" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Jul</text>
   <rect x="812" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-12</title></rect>
+  <rect x="812" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-13</title></rect>
 </svg>
