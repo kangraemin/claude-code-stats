@@ -1,31 +1,31 @@
 {
-  "updated_at": "2026-07-26T06:00:05.468815",
+  "updated_at": "2026-07-27T06:00:01.728756",
   "summary": {
     "first_day": "2026-06-21",
-    "last_day": "2026-07-24",
-    "total_days": 34,
-    "total_cost": 2061.287871749997,
-    "total_msgs": 2660,
-    "total_tokens": 967472085,
-    "avg_cost": 60.62611387499992,
+    "last_day": "2026-07-25",
+    "total_days": 33,
+    "total_cost": 2059.231028249997,
+    "total_msgs": 2657,
+    "total_tokens": 967301259,
+    "avg_cost": 62.40094024999992,
     "median_cost": 0.0,
     "max_cost": 1740.7889422499973,
     "heaviest_day": "2026-06-22",
     "max_msgs": 2060,
     "max_tokens": 839480413,
-    "avg_msgs": 78.23529411764706,
-    "avg_tokens": 28455061.32352941
+    "avg_msgs": 80.51515151515152,
+    "avg_tokens": 29312159.363636363
   },
   "by_model": {
     "<synthetic>": {
       "cost": 0.0,
-      "msgs": 28,
+      "msgs": 29,
       "tokens": 0
     },
     "claude-opus-4-8": {
-      "cost": 2061.2878717499966,
-      "msgs": 2632,
-      "tokens": 967472085
+      "cost": 2059.2310282499966,
+      "msgs": 2628,
+      "tokens": 967301259
     }
   },
   "daily": {
@@ -69,6 +69,14 @@
       "cache_r": 31072,
       "output": 1378
     },
+    "2026-07-25": {
+      "cost": 0.0,
+      "msgs": 1,
+      "input": 0,
+      "cache_c": 0,
+      "cache_r": 0,
+      "output": 0
+    },
     "2026-07-11": {
       "cost": 0.0,
       "msgs": 1,
@@ -92,14 +100,6 @@
       "cache_c": 0,
       "cache_r": 0,
       "output": 0
-    },
-    "2026-06-24": {
-      "cost": 1.0318905,
-      "msgs": 2,
-      "input": 28968,
-      "cache_c": 24102,
-      "cache_r": 31072,
-      "output": 1318
     },
     "2026-07-01": {
       "cost": 0.0,
@@ -204,14 +204,6 @@
       "cache_c": 0,
       "cache_r": 0,
       "output": 0
-    },
-    "2026-06-23": {
-      "cost": 1.024953,
-      "msgs": 2,
-      "input": 28968,
-      "cache_c": 24100,
-      "cache_r": 31072,
-      "output": 1226
     },
     "2026-06-27": {
       "cost": 0.0,
