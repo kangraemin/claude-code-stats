@@ -348,8 +348,8 @@
   <rect x="737" y="37" width="12" height="12" rx="2" fill="#216e39"><title>2026-06-22: $1,741</title></rect>
   <rect x="737" y="52" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-23</title></rect>
   <rect x="737" y="67" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-24</title></rect>
-  <rect x="737" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-25: $1</title></rect>
-  <rect x="737" y="97" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-06-26: $1</title></rect>
+  <rect x="737" y="82" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-25</title></rect>
+  <rect x="737" y="97" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-26</title></rect>
   <rect x="737" y="112" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-27</title></rect>
   <rect x="752" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-28</title></rect>
   <rect x="752" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-06-29</title></rect>
@@ -383,4 +383,5 @@
   <rect x="812" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-26</title></rect>
   <rect x="812" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-27</title></rect>
   <rect x="812" y="52" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-28</title></rect>
+  <rect x="812" y="67" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-07-29</title></rect>
 </svg>
