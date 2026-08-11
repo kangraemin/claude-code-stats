@@ -28,7 +28,7 @@
   <!-- Total Cost (메인 강조) -->
   <text x="22" y="86" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e" letter-spacing="0.8">TOTAL COST (정가 기준 추정)</text>
   <text x="22" y="120" font-family="-apple-system,sans-serif" font-size="32" font-weight="800" fill="url(#costGrad)">$2,070</text>
-  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 2,897,672원</text>
+  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 2,898,052원</text>
 
   <!-- 2x3 그리드 통계 -->
   <g font-family="-apple-system,sans-serif">
@@ -44,7 +44,7 @@
 
     <!-- Row 2 -->
     <text x="22" y="226" font-size="10" fill="#8b949e" letter-spacing="0.5">💬 RESPONSES</text>
-    <text x="22" y="248" font-size="18" font-weight="700" fill="#c9d1d9">2,802</text>
+    <text x="22" y="248" font-size="18" font-weight="700" fill="#c9d1d9">2,805</text>
 
     <text x="200" y="226" font-size="10" fill="#8b949e" letter-spacing="0.5">📅 AVG MSGS/DAY</text>
     <text x="200" y="248" font-size="18" font-weight="700" fill="#c9d1d9">82</text>
@@ -59,5 +59,5 @@
   <polyline points="248.0,304.7 256.2,272.0 264.4,312.0 272.5,312.0 280.7,312.0 288.9,312.0 297.1,312.0 305.3,312.0 313.5,312.0 321.6,312.0 329.8,312.0 338.0,312.0 346.2,312.0 354.4,312.0 362.5,312.0 370.7,312.0 378.9,312.0 387.1,312.0 395.3,312.0 403.5,312.0 411.6,312.0 419.8,312.0 428.0,312.0 436.2,312.0 444.4,312.0 452.5,312.0 460.7,312.0 468.9,312.0 477.1,312.0 485.3,312.0 493.5,312.0 501.6,312.0 509.8,312.0 518.0,311.7" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 
   <!-- Footer -->
-  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-08-11 06:00 KST</text>
+  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-08-12 06:00 KST</text>
 </svg>
