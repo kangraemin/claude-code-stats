@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-08-15T06:00:06.441882",
+  "updated_at": "2026-08-16T06:00:06.396601",
   "summary": {
     "first_day": "2026-06-21",
-    "last_day": "2026-08-13",
-    "total_days": 37,
+    "last_day": "2026-08-14",
+    "total_days": 38,
     "total_cost": 2071.1009554499974,
-    "total_msgs": 2815,
+    "total_msgs": 2816,
     "total_tokens": 977544824,
-    "avg_cost": 55.975701498648576,
+    "avg_cost": 54.50265672236835,
     "median_cost": 0.0,
     "max_cost": 1740.7889422499973,
     "heaviest_day": "2026-06-22",
     "max_msgs": 2060,
     "max_tokens": 839480413,
-    "avg_msgs": 76.08108108108108,
-    "avg_tokens": 26420130.37837838
+    "avg_msgs": 74.10526315789474,
+    "avg_tokens": 25724863.789473683
   },
   "by_model": {
     "<synthetic>": {
       "cost": 0.0,
-      "msgs": 33,
+      "msgs": 34,
       "tokens": 0
     },
     "claude-opus-5": {
@@ -257,6 +257,14 @@
       "cache_c": 136943,
       "cache_r": 206896,
       "output": 3544
+    },
+    "2026-08-14": {
+      "cost": 0.0,
+      "msgs": 1,
+      "input": 0,
+      "cache_c": 0,
+      "cache_r": 0,
+      "output": 0
     },
     "2026-08-10": {
       "cost": 13.042850250000006,
