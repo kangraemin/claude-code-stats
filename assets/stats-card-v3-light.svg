@@ -19,7 +19,7 @@
 
   <!-- Header -->
   <text x="22" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#0969da">🤖 Claude Code Usage</text>
-  <text x="22" y="52" font-family="-apple-system,sans-serif" font-size="11" fill="#656d76">2026-06-21 → 2026-08-16 · 40 active days</text>
+  <text x="22" y="52" font-family="-apple-system,sans-serif" font-size="11" fill="#656d76">2026-06-21 → 2026-08-17 · 41 active days</text>
 
   <!-- Rank 배지 -->
   <rect x="408" y="20" width="110" height="22" rx="11" fill="#0969da" fill-opacity="0.15" stroke="#0969da" stroke-width="0.8"/>
@@ -34,7 +34,7 @@
   <g font-family="-apple-system,sans-serif">
     <!-- Row 1 -->
     <text x="22" y="172" font-size="10" fill="#656d76" letter-spacing="0.5">📊 AVG / DAY</text>
-    <text x="22" y="194" font-size="18" font-weight="700" fill="#1f2328">$52</text>
+    <text x="22" y="194" font-size="18" font-weight="700" fill="#1f2328">$51</text>
 
     <text x="200" y="172" font-size="10" fill="#656d76" letter-spacing="0.5">🔥 TOTAL TOKENS</text>
     <text x="200" y="194" font-size="18" font-weight="700" fill="#0969da">0.98B</text>
@@ -44,10 +44,10 @@
 
     <!-- Row 2 -->
     <text x="22" y="226" font-size="10" fill="#656d76" letter-spacing="0.5">💬 RESPONSES</text>
-    <text x="22" y="248" font-size="18" font-weight="700" fill="#1f2328">2,818</text>
+    <text x="22" y="248" font-size="18" font-weight="700" fill="#1f2328">2,819</text>
 
     <text x="200" y="226" font-size="10" fill="#656d76" letter-spacing="0.5">📅 AVG MSGS/DAY</text>
-    <text x="200" y="248" font-size="18" font-weight="700" fill="#1f2328">70</text>
+    <text x="200" y="248" font-size="18" font-weight="700" fill="#1f2328">69</text>
 
     <text x="378" y="226" font-size="10" fill="#656d76" letter-spacing="0.5">🏆 BEST DAY</text>
     <text x="378" y="248" font-size="18" font-weight="700" fill="#cf222e">$1,741</text>
@@ -55,9 +55,9 @@
 
   <!-- 스파크라인 -->
   <text x="22" y="264" font-family="-apple-system,sans-serif" font-size="10" fill="#656d76" letter-spacing="0.5">📈 DAILY COST TREND</text>
-  <polygon points="248.0,312 248.0,304.7 254.9,272.0 261.8,312.0 268.8,312.0 275.7,312.0 282.6,312.0 289.5,312.0 296.5,312.0 303.4,312.0 310.3,312.0 317.2,312.0 324.2,312.0 331.1,312.0 338.0,312.0 344.9,312.0 351.8,312.0 358.8,312.0 365.7,312.0 372.6,312.0 379.5,312.0 386.5,312.0 393.4,312.0 400.3,312.0 407.2,312.0 414.2,312.0 421.1,312.0 428.0,312.0 434.9,312.0 441.8,312.0 448.8,312.0 455.7,312.0 462.6,312.0 469.5,312.0 476.5,311.7 483.4,312.0 490.3,312.0 497.2,312.0 504.2,312.0 511.1,312.0 518.0,312.0 518.0,312" fill="url(#sparkGrad)"/>
-  <polyline points="248.0,304.7 254.9,272.0 261.8,312.0 268.8,312.0 275.7,312.0 282.6,312.0 289.5,312.0 296.5,312.0 303.4,312.0 310.3,312.0 317.2,312.0 324.2,312.0 331.1,312.0 338.0,312.0 344.9,312.0 351.8,312.0 358.8,312.0 365.7,312.0 372.6,312.0 379.5,312.0 386.5,312.0 393.4,312.0 400.3,312.0 407.2,312.0 414.2,312.0 421.1,312.0 428.0,312.0 434.9,312.0 441.8,312.0 448.8,312.0 455.7,312.0 462.6,312.0 469.5,312.0 476.5,311.7 483.4,312.0 490.3,312.0 497.2,312.0 504.2,312.0 511.1,312.0 518.0,312.0" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="248.0,312 248.0,304.7 254.8,272.0 261.5,312.0 268.2,312.0 275.0,312.0 281.8,312.0 288.5,312.0 295.2,312.0 302.0,312.0 308.8,312.0 315.5,312.0 322.2,312.0 329.0,312.0 335.8,312.0 342.5,312.0 349.2,312.0 356.0,312.0 362.8,312.0 369.5,312.0 376.2,312.0 383.0,312.0 389.8,312.0 396.5,312.0 403.2,312.0 410.0,312.0 416.8,312.0 423.5,312.0 430.2,312.0 437.0,312.0 443.8,312.0 450.5,312.0 457.2,312.0 464.0,312.0 470.8,311.7 477.5,312.0 484.2,312.0 491.0,312.0 497.8,312.0 504.5,312.0 511.2,312.0 518.0,312.0 518.0,312" fill="url(#sparkGrad)"/>
+  <polyline points="248.0,304.7 254.8,272.0 261.5,312.0 268.2,312.0 275.0,312.0 281.8,312.0 288.5,312.0 295.2,312.0 302.0,312.0 308.8,312.0 315.5,312.0 322.2,312.0 329.0,312.0 335.8,312.0 342.5,312.0 349.2,312.0 356.0,312.0 362.8,312.0 369.5,312.0 376.2,312.0 383.0,312.0 389.8,312.0 396.5,312.0 403.2,312.0 410.0,312.0 416.8,312.0 423.5,312.0 430.2,312.0 437.0,312.0 443.8,312.0 450.5,312.0 457.2,312.0 464.0,312.0 470.8,311.7 477.5,312.0 484.2,312.0 491.0,312.0 497.8,312.0 504.5,312.0 511.2,312.0 518.0,312.0" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 
   <!-- Footer -->
-  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76" text-anchor="end">Updated: 2026-08-18 06:00 KST</text>
+  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76" text-anchor="end">Updated: 2026-08-19 06:00 KST</text>
 </svg>
