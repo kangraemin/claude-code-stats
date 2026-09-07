@@ -28,7 +28,7 @@
   <!-- Total Cost (메인 강조) -->
   <text x="22" y="86" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e" letter-spacing="0.8">TOTAL COST (정가 기준 추정)</text>
   <text x="22" y="120" font-family="-apple-system,sans-serif" font-size="32" font-weight="800" fill="url(#costGrad)">$4,359</text>
-  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 6,102,684원</text>
+  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 6,102,884원</text>
 
   <!-- 2x3 그리드 통계 -->
   <g font-family="-apple-system,sans-serif">
@@ -44,7 +44,7 @@
 
     <!-- Row 2 -->
     <text x="22" y="226" font-size="10" fill="#8b949e" letter-spacing="0.5">💬 RESPONSES</text>
-    <text x="22" y="248" font-size="18" font-weight="700" fill="#c9d1d9">20,162</text>
+    <text x="22" y="248" font-size="18" font-weight="700" fill="#c9d1d9">20,163</text>
 
     <text x="200" y="226" font-size="10" fill="#8b949e" letter-spacing="0.5">📅 AVG MSGS/DAY</text>
     <text x="200" y="248" font-size="18" font-weight="700" fill="#c9d1d9">331</text>
@@ -59,5 +59,5 @@
   <polyline points="248.0,304.7 252.5,272.0 257.0,312.0 261.5,312.0 266.0,312.0 270.5,312.0 275.0,312.0 279.5,312.0 284.0,312.0 288.5,312.0 293.0,312.0 297.5,312.0 302.0,312.0 306.5,312.0 311.0,312.0 315.5,312.0 320.0,312.0 324.5,312.0 329.0,312.0 333.5,312.0 338.0,312.0 342.5,312.0 347.0,312.0 351.5,312.0 356.0,312.0 360.5,312.0 365.0,312.0 369.5,312.0 374.0,312.0 378.5,312.0 383.0,312.0 387.5,312.0 392.0,312.0 396.5,311.6 401.0,312.0 405.5,312.0 410.0,312.0 414.5,312.0 419.0,312.0 423.5,312.0 428.0,312.0 432.5,312.0 437.0,312.0 441.5,312.0 446.0,312.0 450.5,312.0 455.0,312.0 459.5,312.0 464.0,312.0 468.5,312.0 473.0,312.0 477.5,312.0 482.0,312.0 486.5,312.0 491.0,284.7 495.5,292.4 500.0,309.3 504.5,311.2 509.0,312.0 513.5,312.0 518.0,309.9" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 
   <!-- Footer -->
-  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-09-07 06:00 KST</text>
+  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-09-08 06:00 KST</text>
 </svg>
