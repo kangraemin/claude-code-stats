@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-09-15T06:00:04.578870",
+  "updated_at": "2026-09-16T06:00:03.742397",
   "summary": {
     "first_day": "2026-06-21",
-    "last_day": "2026-09-13",
-    "total_days": 68,
-    "total_cost": 4360.205080049993,
-    "total_msgs": 20170,
-    "total_tokens": 5157161668,
-    "avg_cost": 64.12066294191168,
+    "last_day": "2026-09-14",
+    "total_days": 69,
+    "total_cost": 4360.3490644499925,
+    "total_msgs": 20171,
+    "total_tokens": 5157207800,
+    "avg_cost": 63.19346470217382,
     "median_cost": 0.0,
     "max_cost": 1740.7889422499973,
     "heaviest_day": "2026-06-22",
     "max_msgs": 8294,
     "max_tokens": 2152023709,
-    "avg_msgs": 296.61764705882354,
-    "avg_tokens": 75840612.76470588
+    "avg_msgs": 292.3333333333333,
+    "avg_tokens": 74742142.0289855
   },
   "by_model": {
     "<synthetic>": {
@@ -23,9 +23,9 @@
       "tokens": 0
     },
     "claude-opus-5": {
-      "cost": 2282.52853500001,
-      "msgs": 17241,
-      "tokens": 4182668974
+      "cost": 2282.67251940001,
+      "msgs": 17242,
+      "tokens": 4182715106
     },
     "claude-opus-4-8": {
       "cost": 2077.3778617499993,
@@ -470,6 +470,14 @@
       "cache_c": 0,
       "cache_r": 0,
       "output": 0
+    },
+    "2026-09-14": {
+      "cost": 0.14398439999999998,
+      "msgs": 1,
+      "input": 2,
+      "cache_c": 35540,
+      "cache_r": 10078,
+      "output": 512
     },
     "2026-09-01": {
       "cost": 851.2690206000011,
