@@ -382,6 +382,7 @@
   <text x="797" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Sep</text>
   <rect x="812" y="22" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-13: $0</title></rect>
   <rect x="812" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-14: $0</title></rect>
-  <rect x="812" y="52" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-09-15</title></rect>
+  <rect x="812" y="52" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-15: $0</title></rect>
   <rect x="812" y="67" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-09-16</title></rect>
+  <rect x="812" y="82" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-09-17</title></rect>
 </svg>
