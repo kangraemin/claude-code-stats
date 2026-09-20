@@ -28,7 +28,7 @@
   <!-- Total Cost (메인 강조) -->
   <text x="22" y="86" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e" letter-spacing="0.8">TOTAL COST (정가 기준 추정)</text>
   <text x="22" y="120" font-family="-apple-system,sans-serif" font-size="32" font-weight="800" fill="url(#costGrad)">$4,914</text>
-  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 6,879,000원</text>
+  <text x="22" y="138" font-family="-apple-system,sans-serif" font-size="10" fill="#8b949e">≈ 6,879,213원</text>
 
   <!-- 2x3 그리드 통계 -->
   <g font-family="-apple-system,sans-serif">
@@ -44,7 +44,7 @@
 
     <!-- Row 2 -->
     <text x="22" y="226" font-size="10" fill="#8b949e" letter-spacing="0.5">💬 RESPONSES</text>
-    <text x="22" y="248" font-size="18" font-weight="700" fill="#c9d1d9">23,274</text>
+    <text x="22" y="248" font-size="18" font-weight="700" fill="#c9d1d9">23,275</text>
 
     <text x="200" y="226" font-size="10" fill="#8b949e" letter-spacing="0.5">📅 AVG MSGS/DAY</text>
     <text x="200" y="248" font-size="18" font-weight="700" fill="#c9d1d9">315</text>
@@ -59,5 +59,5 @@
   <polyline points="248.0,304.7 251.7,272.0 255.4,312.0 259.1,312.0 262.8,312.0 266.5,312.0 270.2,312.0 273.9,312.0 277.6,312.0 281.3,312.0 285.0,312.0 288.7,312.0 292.4,312.0 296.1,312.0 299.8,312.0 303.5,312.0 307.2,312.0 310.9,312.0 314.6,312.0 318.3,312.0 322.0,312.0 325.7,312.0 329.4,312.0 333.1,312.0 336.8,312.0 340.5,312.0 344.2,312.0 347.9,312.0 351.6,312.0 355.3,312.0 359.0,312.0 362.7,312.0 366.4,312.0 370.1,311.6 373.8,312.0 377.5,312.0 381.2,312.0 384.8,312.0 388.5,312.0 392.2,312.0 395.9,312.0 399.6,312.0 403.3,312.0 407.0,312.0 410.7,312.0 414.4,312.0 418.1,312.0 421.8,312.0 425.5,312.0 429.2,312.0 432.9,312.0 436.6,312.0 440.3,312.0 444.0,312.0 447.7,284.7 451.4,288.6 455.1,309.3 458.8,311.2 462.5,312.0 466.2,312.0 469.9,309.6 473.6,312.0 477.3,312.0 481.0,312.0 484.7,312.0 488.4,312.0 492.1,312.0 495.8,312.0 499.5,312.0 503.2,312.0 506.9,312.0 510.6,312.0 514.3,303.9 518.0,311.5" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 
   <!-- Footer -->
-  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-09-20 06:00 KST</text>
+  <text x="518" y="332" font-family="-apple-system,sans-serif" font-size="9" fill="#8b949e" text-anchor="end">Updated: 2026-09-21 06:00 KST</text>
 </svg>
