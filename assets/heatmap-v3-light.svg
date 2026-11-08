@@ -378,7 +378,8 @@
   <rect x="797" y="67" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-04: $892</title></rect>
   <rect x="797" y="82" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-05: $629</title></rect>
   <rect x="797" y="97" width="12" height="12" rx="2" fill="#216e39"><title>2026-11-06: $2,299</title></rect>
-  <rect x="797" y="112" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-07: $1,037</title></rect>
+  <rect x="797" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-07: $1,101</title></rect>
   <text x="797" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Nov</text>
-  <rect x="812" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-11-08</title></rect>
+  <rect x="812" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-08: $721</title></rect>
+  <rect x="812" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-11-09</title></rect>
 </svg>
