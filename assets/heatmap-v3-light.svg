@@ -301,7 +301,7 @@
   <rect x="632" y="97" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-08-28</title></rect>
   <rect x="632" y="112" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-08-29</title></rect>
   <rect x="647" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-08-30</title></rect>
-  <rect x="647" y="37" width="12" height="12" rx="2" fill="#30a14e"><title>2026-08-31: $1,188</title></rect>
+  <rect x="647" y="37" width="12" height="12" rx="2" fill="#40c463"><title>2026-08-31: $1,188</title></rect>
   <rect x="647" y="52" width="12" height="12" rx="2" fill="#40c463"><title>2026-09-01: $1,020</title></rect>
   <rect x="647" y="67" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-02: $118</title></rect>
   <rect x="647" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-03: $35</title></rect>
@@ -320,7 +320,7 @@
   <rect x="677" y="52" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-15: $0</title></rect>
   <rect x="677" y="67" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-16: $0</title></rect>
   <rect x="677" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-17: $0</title></rect>
-  <rect x="677" y="97" width="12" height="12" rx="2" fill="#40c463"><title>2026-09-18: $352</title></rect>
+  <rect x="677" y="97" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-18: $352</title></rect>
   <rect x="677" y="112" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-19: $21</title></rect>
   <rect x="692" y="22" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-20: $0</title></rect>
   <rect x="692" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-09-21: $52</title></rect>
@@ -338,47 +338,48 @@
   <rect x="707" y="112" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-03: $28</title></rect>
   <rect x="722" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-04: $796</title></rect>
   <rect x="722" y="37" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-05: $1,457</title></rect>
-  <rect x="722" y="52" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-06: $1,073</title></rect>
+  <rect x="722" y="52" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-06: $1,073</title></rect>
   <rect x="722" y="67" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-07: $1,370</title></rect>
-  <rect x="722" y="82" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-08: $399</title></rect>
+  <rect x="722" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-08: $399</title></rect>
   <rect x="722" y="97" width="12" height="12" rx="2" fill="#216e39"><title>2026-10-09: $2,731</title></rect>
   <rect x="722" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-10: $1,772</title></rect>
   <text x="722" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Oct</text>
   <rect x="737" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-11: $478</title></rect>
-  <rect x="737" y="37" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-12: $353</title></rect>
+  <rect x="737" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-12: $353</title></rect>
   <rect x="737" y="52" width="12" height="12" rx="2" fill="#216e39"><title>2026-10-13: $2,836</title></rect>
   <rect x="737" y="67" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-14: $1,262</title></rect>
   <rect x="737" y="82" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-15: $214</title></rect>
   <rect x="737" y="97" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-16: $861</title></rect>
-  <rect x="737" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-17: $1,249</title></rect>
-  <rect x="752" y="22" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-18: $1,049</title></rect>
+  <rect x="737" y="112" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-17: $1,249</title></rect>
+  <rect x="752" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-18: $1,049</title></rect>
   <rect x="752" y="37" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-19: $881</title></rect>
   <rect x="752" y="52" width="12" height="12" rx="2" fill="#216e39"><title>2026-10-20: $2,710</title></rect>
   <rect x="752" y="67" width="12" height="12" rx="2" fill="#216e39"><title>2026-10-21: $3,468</title></rect>
   <rect x="752" y="82" width="12" height="12" rx="2" fill="#216e39"><title>2026-10-22: $3,101</title></rect>
   <rect x="752" y="97" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-23: $1,554</title></rect>
-  <rect x="752" y="112" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-24: $401</title></rect>
+  <rect x="752" y="112" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-24: $401</title></rect>
   <rect x="767" y="22" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-25: $333</title></rect>
   <rect x="767" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-10-26: $110</title></rect>
   <rect x="767" y="52" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-27: $1,321</title></rect>
   <rect x="767" y="67" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-28: $1,383</title></rect>
-  <rect x="767" y="82" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-29: $1,143</title></rect>
+  <rect x="767" y="82" width="12" height="12" rx="2" fill="#40c463"><title>2026-10-29: $1,143</title></rect>
   <rect x="767" y="97" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-30: $1,979</title></rect>
   <rect x="767" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-10-31: $1,635</title></rect>
-  <rect x="782" y="22" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-01: $1,123</title></rect>
+  <rect x="782" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-01: $1,123</title></rect>
   <rect x="782" y="37" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-02: $1,254</title></rect>
   <rect x="782" y="52" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-03: $1,027</title></rect>
   <rect x="782" y="67" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-04: $892</title></rect>
   <rect x="782" y="82" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-05: $629</title></rect>
-  <rect x="782" y="97" width="12" height="12" rx="2" fill="#216e39"><title>2026-11-06: $2,299</title></rect>
-  <rect x="782" y="112" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-07: $1,101</title></rect>
+  <rect x="782" y="97" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-06: $2,299</title></rect>
+  <rect x="782" y="112" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-07: $1,101</title></rect>
   <text x="782" y="14" font-family="-apple-system,sans-serif" font-size="9" fill="#656d76">Nov</text>
   <rect x="797" y="22" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-08: $907</title></rect>
   <rect x="797" y="37" width="12" height="12" rx="2" fill="#9be9a8"><title>2026-11-09: $35</title></rect>
   <rect x="797" y="52" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-10: $1,636</title></rect>
   <rect x="797" y="67" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-11: $783</title></rect>
   <rect x="797" y="82" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-12: $531</title></rect>
-  <rect x="797" y="97" width="12" height="12" rx="2" fill="#30a14e"><title>2026-11-13: $1,227</title></rect>
-  <rect x="797" y="112" width="12" height="12" rx="2" fill="#216e39"><title>2026-11-14: $2,931</title></rect>
-  <rect x="812" y="22" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-11-15</title></rect>
+  <rect x="797" y="97" width="12" height="12" rx="2" fill="#40c463"><title>2026-11-13: $1,227</title></rect>
+  <rect x="797" y="112" width="12" height="12" rx="2" fill="#216e39"><title>2026-11-14: $3,013</title></rect>
+  <rect x="812" y="22" width="12" height="12" rx="2" fill="#216e39"><title>2026-11-15: $4,176</title></rect>
+  <rect x="812" y="37" width="12" height="12" rx="2" fill="#ebedf0"><title>2026-11-16</title></rect>
 </svg>
